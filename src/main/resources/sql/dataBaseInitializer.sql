@@ -12,7 +12,7 @@ create table if not exists users
   PRIMARY KEY (id)
 );
 
-create table if not exists films
+/*create table if not exists films
 (
   id                  SERIAL       NOT NULL,
   name                varchar(250) NOT NULL,
@@ -70,7 +70,7 @@ create table if not exists tickets
   CONSTRAINT tickets_place_id_fkey FOREIGN KEY (place_id)
     REFERENCES places (id)
 );
-
+*/
 
 
 
