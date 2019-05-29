@@ -23,6 +23,9 @@ public class RequestResolver {
 
     public RequestResolver(WebComponentInitializer webComponentInitializer) {
 
+        getControllers.put("/index", r -> webComponentInitializer.getWelcomeController().showIndexPage());
+
+
 
     }
 
