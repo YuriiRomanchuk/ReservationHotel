@@ -19,7 +19,7 @@
     <jsp:attribute name="footer">
     </jsp:attribute>
 
-    <jsp:body>
+   <%-- <jsp:body>
         <div class="row h-100">
             <div class="col fluid bg-faded py-3">
                 <div class="row my-3 offset-md-3 " style="
@@ -153,5 +153,5 @@
                 </div>
             </div>
         </div>
-    </jsp:body>
+    </jsp:body>--%>
 </t:genericpage>
