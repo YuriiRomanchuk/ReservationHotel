@@ -25,7 +25,15 @@ public class RequestResolver {
 
         getControllers.put("/index", r -> webComponentInitializer.getWelcomeController().showIndexPage());
 
+        getControllers.put("/registration-form", r -> webComponentInitializer.getUserController().showRegistrationPage());
+        getControllers.put("/login", r -> webComponentInitializer.getUserController().showUserLoginPage());
+        getControllers.put("/admin-personal-area", r -> webComponentInitializer.getUserController().showAdminPersonalArea());
+        getControllers.put("/user-personal-area", r -> webComponentInitializer.getUserController().showUserPersonalArea(webComponentInitializer.getUserDtoConverter().convertFromRequestForUserId(r)));
+        getControllers.put("/logout", r -> webComponentInitializer.getUserController().logout());
 
+        postControllers.put("/login", r -> webComponentInitializer.getUserController().loginUser(webComponentInitializer.getUserLoginDtoConverter().convert(r)));
+        postControllers.put("/registration-form", r -> webComponentInitializer.getUserController().createUser(webComponentInitializer.getUserDtoConverter().convert(r)));
+        postControllers.put("/change_language", r -> webComponentInitializer.getChangeLanguageController().changeLanguage());
 
     }
 

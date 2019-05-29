@@ -49,7 +49,7 @@ public class WebComponentInitializer {
 
         changeLanguageController = new ChangeLanguageController();
         welcomeController = new WelcomeController();
-        userController = new UserController();
+        userController = new UserController(userService, userRegistrationValidator, userLoginValidator);
 
     }
 
@@ -79,6 +79,18 @@ public class WebComponentInitializer {
 
     public WelcomeController getWelcomeController() {
         return welcomeController;
+    }
+
+    public UserController getUserController() {
+        return userController;
+    }
+
+    public UserDtoConverter getUserDtoConverter() {
+        return userDtoConverter;
+    }
+
+    public ChangeLanguageController getChangeLanguageController() {
+        return changeLanguageController;
     }
 }
 

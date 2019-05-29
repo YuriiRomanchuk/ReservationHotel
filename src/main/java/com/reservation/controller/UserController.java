@@ -39,7 +39,7 @@ public class UserController {
         return new ViewModel("WEB-INF/jsp/login.jsp");
     }
 
-    public View showAdminPersonalArea(Date currentDate) {
+    public View showAdminPersonalArea() {
         View view;
     /*    try {*/
             view = new ViewModel("WEB-INF/jsp/admin/admin-personal-area.jsp");
