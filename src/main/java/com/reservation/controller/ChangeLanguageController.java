@@ -1,4 +1,4 @@
-package com.reservation.config;
+package com.reservation.controller;
 
 
 import com.reservation.view.RedirectViewModel;

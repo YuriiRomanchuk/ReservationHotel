@@ -1,5 +1,6 @@
 package com.reservation.config;
 
+import com.reservation.controller.ChangeLanguageController;
 import com.reservation.controller.UserController;
 import com.reservation.controller.WelcomeController;
 import com.reservation.model.converter.UserDtoConverter;
