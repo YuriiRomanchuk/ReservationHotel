@@ -1,11 +1,34 @@
 package com.reservation.model.entity;
 
+import com.reservation.model.enums.ApartmentСlass;
+
 public class Room {
 
     private int id;
     private int placeNumber;
-    private int apartmentСlass;
+    private ApartmentСlass apartmentСlass;
 
+    public int getId() {
+        return id;
+    }
 
+    public int getPlaceNumber() {
+        return placeNumber;
+    }
 
+    public ApartmentСlass getApartmentСlass() {
+        return apartmentСlass;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setPlaceNumber(int placeNumber) {
+        this.placeNumber = placeNumber;
+    }
+
+    public void setApartmentСlass(ApartmentСlass apartmentСlass) {
+        this.apartmentСlass = apartmentСlass;
+    }
 }
