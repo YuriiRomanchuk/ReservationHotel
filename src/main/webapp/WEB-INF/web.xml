@@ -29,43 +29,43 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <filter>
+<!--    <filter>
         <filter-name>ForbiddenUserPageFilter</filter-name>
         <filter-class>com.reservation.controller.filter.UserPageFilter</filter-class>
         <init-param>
             <param-name>forbiddenPagesUser</param-name>
-            <param-value>admin-personal-area,login,registration-form,admin-add-film,admin-add-room,
+            <param-value>&lt;!&ndash;admin-personal-area,login,registration-form,admin-add-film,admin-add-room,
                 admin-add-room-place,admin-personal-area,admin-session,admin-session-room,admin-show-all-films,
-                unknown-session-room,index
+                unknown-session-room,index&ndash;&gt;
             </param-value>
         </init-param>
         <init-param>
             <param-name>forbiddenPagesUnknown</param-name>
-            <param-value><!--admin-personal-area,user-personal-area,admin-add-film,admin-add-room,admin-add-room-place,
+            <param-value>&lt;!&ndash;admin-personal-area,user-personal-area,admin-add-film,admin-add-room,admin-add-room-place,
                 admin-personal-area, admin-session, admin-session-room, admin-show-all-films, user-session-room,
-                user-session, user-personal-area, user-buy-history-->
+                user-session, user-personal-area, user-buy-history&ndash;&gt;
             </param-value>
         </init-param>
         <init-param>
             <param-name>forbiddenPagesAdmin</param-name>
             <param-value>
-              <!--  user-personal-area,login,registration-form,user-session-room,user-session,user-personal-area,user-buy-history,
-                unknown-session-room,index-->
+              &lt;!&ndash;  user-personal-area,login,registration-form,user-session-room,user-session,user-personal-area,user-buy-history,
+                unknown-session-room,index&ndash;&gt;
             </param-value>
         </init-param>
         <init-param>
             <param-name>allPages</param-name>
             <param-value>
-      <!--          index,login,registration-form,admin-personal-area,user-personal-area,admin-add-film,admin-add-room,admin-add-room-place,
+      &lt;!&ndash;          index,login,registration-form,admin-personal-area,user-personal-area,admin-add-film,admin-add-room,admin-add-room-place,
                 admin-personal-area,admin-session,admin-session-room,admin-show-all-films,user-session-room,
-                user-session,user-personal-area,user-buy-history,unknown-session-room-->
+                user-session,user-personal-area,user-buy-history,unknown-session-room&ndash;&gt;
             </param-value>
         </init-param>
     </filter>
     <filter-mapping>
         <filter-name>ForbiddenUserPageFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping>-->
 
     <filter>
         <filter-name>AuthorizationFilter</filter-name>
@@ -85,19 +85,19 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
- <!--   <listener>
+    <listener>
         <listener-class>
-            com.cinema.controller.listener.SessionListener
+            com.reservation.controller.listener.SessionListener
         </listener-class>
-    </listener>-->
+    </listener>
 
-    <!--  <welcome-file-list>
+ <!--     <welcome-file-list>
           <welcome-file>/WEB-INF/jsp/index.jsp</welcome-file>
       </welcome-file-list>-->
 
-    <!--<error-page>
+    <error-page>
         <exception-type>java.lang.Exception</exception-type>
         <location>/WEB-INF/jsp/error.jsp</location>
-    </error-page>-->
+    </error-page>
 
 </web-app>

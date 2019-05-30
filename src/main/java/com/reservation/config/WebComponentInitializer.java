@@ -70,11 +70,11 @@ public class WebComponentInitializer {
     }
 
     public UserLoginDtoConverter getUserLoginDtoConverter() {
-        return null;
+        return userLoginDtoConverter;
     }
 
     public UserService getUserService() {
-        return null;
+        return userService;
     }
 
     public WelcomeController getWelcomeController() {
