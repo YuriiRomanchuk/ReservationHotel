@@ -2,7 +2,7 @@ package com.reservation.controller.filter;
 
 import com.reservation.config.UserAuthorization;
 import com.reservation.config.WebComponentInitializer;
-import com.reservation.model.converter.UserLoginDtoConverter;
+import com.reservation.model.converter.dtoConverter.UserLoginDtoConverter;
 import com.reservation.model.dto.UserDto;
 import com.reservation.model.enums.Role;
 import com.reservation.service.UserService;

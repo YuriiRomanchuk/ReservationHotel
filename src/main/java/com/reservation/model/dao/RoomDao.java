@@ -1,7 +1,7 @@
-package com.cinema.model.dao;
+package com.reservation.model.dao;
 
-import com.cinema.model.converter.resultSetConverter.RoomResultSetConverter;
-import com.cinema.model.entity.Room;
+import com.reservation.model.converter.resultSetConverter.RoomResultSetConverter;
+import com.reservation.model.entity.Room;
 
 import java.util.List;
 
@@ -18,11 +18,12 @@ public class RoomDao implements GenericDao<Room> {
     @Override
     public void insert(Room entity) {
 
-        final String query = "insert into rooms (name, name_english) values(?,?)";
+        final String query = "insert into rooms (room_number, place_number, apartment_class) values(?,?,?";
 
         dataSource.update(query, ps -> {
-            ps.setString(1, entity.getName());
-            ps.setString(2, entity.getNameEnglish());
+            ps.setInt(1, entity.getRoomNumber());
+            ps.setInt(2, entity.getPlaceNumber());
+            ps.setString(3, entity.getApartmentСlass().toString());
         }, r -> entity.setId(r.getInt(1)));
 
     }
@@ -34,7 +35,7 @@ public class RoomDao implements GenericDao<Room> {
 
     @Override
     public List<Room> findAll() {
-        return dataSource.receiveRecords("select id as room_id, name as room_name, name_english as room_name_english from rooms",
+        return dataSource.receiveRecords("select id as room_id, room_number as room_number, place_number as place_number, apartment_class as apartment_class from rooms",
                 resultSet -> roomResultSetConverter.convert(resultSet),
                 preparedStatement -> {
                 });

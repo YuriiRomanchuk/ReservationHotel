@@ -1,12 +1,12 @@
-package com.cinema.controller;
+package com.reservation.controller;
 
-import com.cinema.exception.ServiceException;
-import com.cinema.model.dto.RoomDto;
-import com.cinema.service.RoomService;
-import com.cinema.validator.AddRoomValidator;
-import com.cinema.view.RedirectViewModel;
-import com.cinema.view.View;
-import com.cinema.view.ViewModel;
+import com.reservation.exception.ServiceException;
+import com.reservation.model.dto.RoomDto;
+import com.reservation.service.RoomService;
+import com.reservation.validator.AddRoomValidator;
+import com.reservation.view.RedirectViewModel;
+import com.reservation.view.View;
+import com.reservation.view.ViewModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

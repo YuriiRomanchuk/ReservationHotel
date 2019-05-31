@@ -1,11 +1,11 @@
-package com.cinema.service;
+package com.reservation.service;
 
-import com.cinema.exception.ServiceException;
-import com.cinema.model.converter.dtoConverter.RoomDtoConverter;
-import com.cinema.model.converter.entityConverter.RoomConverter;
-import com.cinema.model.dao.RoomDao;
-import com.cinema.model.dto.RoomDto;
-import com.cinema.model.entity.Room;
+import com.reservation.exception.ServiceException;
+import com.reservation.model.converter.dtoConverter.RoomDtoConverter;
+import com.reservation.model.converter.entityConverter.RoomConverter;
+import com.reservation.model.dao.RoomDao;
+import com.reservation.model.dto.RoomDto;
+import com.reservation.model.entity.Room;
 
 import java.util.List;
 import java.util.stream.Collectors;

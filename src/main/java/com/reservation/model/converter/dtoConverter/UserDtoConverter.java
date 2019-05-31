@@ -1,6 +1,7 @@
-package com.reservation.model.converter;
+package com.reservation.model.converter.dtoConverter;
 
 
+import com.reservation.model.converter.Converter;
 import com.reservation.model.dto.UserDto;
 import com.reservation.model.entity.User;
 import org.apache.logging.log4j.LogManager;

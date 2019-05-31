@@ -1,7 +1,8 @@
-package com.cinema.model.converter.resultSetConverter;
+package com.reservation.model.converter.resultSetConverter;
 
-import com.cinema.model.converter.Converter;
-import com.cinema.model.entity.Room;
+import com.reservation.model.converter.Converter;
+import com.reservation.model.entity.Room;
+import com.reservation.model.enums.ApartmentСlass;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,8 +16,9 @@ public class RoomResultSetConverter implements Converter<ResultSet, Room> {
     @Override
     public Room convert(ResultSet resultSet) throws SQLException {
         Room room = new Room();
-        room.setName(resultSet.getString("room_name"));
-        room.setNameEnglish(resultSet.getString("room_name_english"));
+        room.setPlaceNumber(resultSet.getInt("place_number"));
+        room.setApartmentСlass(ApartmentСlass.valueOf(resultSet.getString("class")));
+        room.setRoomNumber(resultSet.getInt("room_number"));
         room.setId(resultSet.getInt("room_id"));
         LOGGER.debug("Room result set is converted!");
         return room;

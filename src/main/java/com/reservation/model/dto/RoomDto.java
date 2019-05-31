@@ -1,42 +1,43 @@
-package com.cinema.model.dto;
+package com.reservation.model.dto;
+
+import com.reservation.model.enums.ApartmentСlass;
 
 public class RoomDto {
 
     private int id;
-    private String name;
-    private String nameEnglish;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getNameEnglish() {
-        return nameEnglish;
-    }
+    private int roomNumber;
+    private int placeNumber;
+    private ApartmentСlass apartmentСlass;
 
     public int getId() {
         return id;
+    }
+
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public int getPlaceNumber() {
+        return placeNumber;
+    }
+
+    public ApartmentСlass getApartmentСlass() {
+        return apartmentСlass;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setNameEnglish(String nameEnglish) {
-        this.nameEnglish = nameEnglish;
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
     }
 
+    public void setPlaceNumber(int placeNumber) {
+        this.placeNumber = placeNumber;
+    }
 
-    @Override
-    public String toString() {
-        return "RoomDto{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", nameEnglish='" + nameEnglish + '\'' +
-                '}';
+    public void setApartmentСlass(ApartmentСlass apartmentСlass) {
+        this.apartmentСlass = apartmentСlass;
     }
 }

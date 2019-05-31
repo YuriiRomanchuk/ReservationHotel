@@ -1,8 +1,9 @@
-package com.cinema.model.converter.dtoConverter;
+package com.reservation.model.converter.dtoConverter;
 
-import com.cinema.model.converter.Converter;
-import com.cinema.model.dto.RoomDto;
-import com.cinema.model.entity.Room;
+import com.reservation.model.converter.Converter;
+import com.reservation.model.dto.RoomDto;
+import com.reservation.model.entity.Room;
+import com.reservation.model.enums.ApartmentСlass;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,8 +16,9 @@ public class RoomDtoConverter implements Converter<HttpServletRequest, RoomDto> 
     @Override
     public RoomDto convert(HttpServletRequest request) {
         RoomDto roomDto = new RoomDto();
-        roomDto.setName(request.getParameter("name"));
-        roomDto.setNameEnglish(request.getParameter("name_english"));
+        roomDto.setPlaceNumber(Integer.valueOf(request.getParameter("placeNumber")));
+        roomDto.setApartmentСlass(ApartmentСlass.valueOf(request.getParameter("apartmentClass")));
+        roomDto.setRoomNumber(Integer.valueOf(request.getParameter("roomNumber")));
         LOGGER.debug("Room dto is converted from request!");
         return roomDto;
     }
@@ -25,8 +27,9 @@ public class RoomDtoConverter implements Converter<HttpServletRequest, RoomDto> 
     public RoomDto convertFromRoomEntity(Room room) {
         RoomDto roomDto = new RoomDto();
         roomDto.setId(room.getId());
-        roomDto.setName(room.getName());
-        roomDto.setNameEnglish(room.getNameEnglish());
+        roomDto.setRoomNumber(room.getRoomNumber());
+        roomDto.setApartmentСlass(room.getApartmentСlass());
+        roomDto.setPlaceNumber(room.getPlaceNumber());
         LOGGER.debug("Room dto is converted by entity!");
         return roomDto;
     }

@@ -1,4 +1,4 @@
-package com.cinema.model.converter.utility;
+package com.reservation.model.converter.utility;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

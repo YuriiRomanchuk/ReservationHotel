@@ -5,6 +5,7 @@ import com.reservation.model.enums.ApartmentСlass;
 public class Room {
 
     private int id;
+    private int roomNumber;
     private int placeNumber;
     private ApartmentСlass apartmentСlass;
 
@@ -30,5 +31,13 @@ public class Room {
 
     public void setApartmentСlass(ApartmentСlass apartmentСlass) {
         this.apartmentСlass = apartmentСlass;
+    }
+
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
     }
 }
