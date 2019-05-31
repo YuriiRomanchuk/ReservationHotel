@@ -37,7 +37,7 @@
     <div class="form-group">
         <label for="placeNumber"><fmt:message key="local.admin.add.room.placeNumber" bundle="${messages}"/></label>
         <select name="placeNumber" id="placeNumber" class="form-control" title="placeNumber" required="required">
-            <option selected><fmt:message key="local.admin.session.film.choose" bundle="${messages}"/></option>
+            <option selected><fmt:message key="local.admin.add.room.placeNumber.placeholder" bundle="${messages}"/></option>
             <c:forEach var="place" items="${placesNumber}">
                 <c:choose>
                     <option selected="selected" value=${place}</option>
@@ -46,7 +46,7 @@
         </select>
         <label for="apartmentClass"><fmt:message key="local.admin.add.room.apartmentClass" bundle="${messages}"/></label>
         <select name="apartmentClass" id="apartmentClass" class="form-control" title="apartmentClass" required="required">
-            <option selected><fmt:message key="local.admin.session.film.choose" bundle="${messages}"/></option>
+            <option selected><fmt:message key="local.admin.add.room.apartmentClass.placeholder" bundle="${messages}"/></option>
             <c:forEach var="class" items="${apartmentsClass}">
             <c:choose>
             <option selected="selected" value=${class}</option>
@@ -56,7 +56,7 @@
 
         <label for="roomNumber"><fmt:message key="local.admin.add.room.roomNumber" bundle="${messages}"/></label>
         <input required type="text" class="form-control" id="roomNumber" name="roomNumber"
-               placeholder="<fmt:message key="local.admin.add.room.name.placeholder" bundle="${messages}"/>"
+               placeholder="<fmt:message key="local.admin.add.room.roomNumber.placeholder" bundle="${messages}"/>"
                pattern="<fmt:message key="regexStringNumber" bundle="${regexpValidator}"/>">
 
     </div>

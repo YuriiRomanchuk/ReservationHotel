@@ -2,6 +2,7 @@ package com.reservation.controller;
 
 import com.reservation.exception.ServiceException;
 import com.reservation.model.dto.RoomDto;
+import com.reservation.model.enums.ApartmentСlass;
 import com.reservation.service.RoomService;
 import com.reservation.validator.AddRoomValidator;
 import com.reservation.view.RedirectViewModel;
@@ -25,7 +26,10 @@ public class RoomController {
 
         View view;
         try {
+            int[] placesNumber = {1, 2, 3, 4};
             view = validateAddRoom(roomDto);
+            view.addParameter("apartmentsClass", ApartmentСlass.values());
+            view.addParameter("placesNumber", placesNumber);
         } catch (ServiceException e) {
             view = receiveViewModel("admin-add-room", e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
             view.addParameter("roomDto", roomDto);
