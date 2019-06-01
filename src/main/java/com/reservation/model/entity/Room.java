@@ -8,6 +8,7 @@ public class Room {
     private int roomNumber;
     private int placeNumber;
     private ApartmentСlass apartmentСlass;
+    private int price;
 
     public int getId() {
         return id;
@@ -39,5 +40,13 @@ public class Room {
 
     public void setRoomNumber(int roomNumber) {
         this.roomNumber = roomNumber;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

@@ -5,6 +5,7 @@ public class RoomDto {
     private int id;
     private int roomNumber;
     private int placeNumber;
+    private int price;
     private String apartmentСlass;
 
     public int getId() {
@@ -37,5 +38,13 @@ public class RoomDto {
 
     public void setApartmentСlass(String apartmentСlass) {
         this.apartmentСlass = apartmentСlass;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getPrice() {
+        return price;
     }
 }

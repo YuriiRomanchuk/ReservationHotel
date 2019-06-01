@@ -18,12 +18,13 @@ public class RoomDao implements GenericDao<Room> {
     @Override
     public void insert(Room entity) {
 
-        final String query = "insert into rooms (room_number, place_number, class) values(?,?,?)";
+        final String query = "insert into rooms (room_number, place_number, class, price) values(?,?,?,?)";
 
         dataSource.update(query, ps -> {
             ps.setInt(1, entity.getRoomNumber());
             ps.setInt(2, entity.getPlaceNumber());
             ps.setString(3, entity.getApartmentСlass().toString());
+            ps.setInt(4, entity.getPrice());
         }, r -> entity.setId(r.getInt(1)));
 
     }
@@ -35,7 +36,8 @@ public class RoomDao implements GenericDao<Room> {
 
     @Override
     public List<Room> findAll() {
-        return dataSource.receiveRecords("select id as room_id, room_number as room_number, place_number as place_number, apartment_class as apartment_class from rooms",
+        return dataSource.receiveRecords("select id as room_id, room_number as room_number, place_number as place_number," +
+                        " apartment_class as apartment_class, price from rooms",
                 resultSet -> roomResultSetConverter.convert(resultSet),
                 preparedStatement -> {
                 });

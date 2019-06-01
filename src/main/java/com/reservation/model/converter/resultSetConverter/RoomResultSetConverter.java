@@ -20,6 +20,7 @@ public class RoomResultSetConverter implements Converter<ResultSet, Room> {
         room.setApartmentСlass(ApartmentСlass.valueOf(resultSet.getString("class")));
         room.setRoomNumber(resultSet.getInt("room_number"));
         room.setId(resultSet.getInt("room_id"));
+        room.setPrice(resultSet.getInt("price"));
         LOGGER.debug("Room result set is converted!");
         return room;
     }

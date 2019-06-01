@@ -53,7 +53,10 @@
         <input required type="text" class="form-control" id="roomNumber" name="roomNumber"
                placeholder="<fmt:message key="local.admin.add.room.roomNumber.placeholder" bundle="${messages}"/>"
                pattern="<fmt:message key="regexNumber" bundle="${regexpValidator}"/>">
-
+        <label for="price"><fmt:message key="local.admin.add.room.price" bundle="${messages}"/></label>
+        <input required type="text" class="form-control" id="price" name="price"
+               placeholder="<fmt:message key="local.admin.add.room.price.placeholder" bundle="${messages}"/>"
+               pattern="<fmt:message key="regexNumber" bundle="${regexpValidator}"/>">
     </div>
     <button type="submit" class="btn btn-primary"><fmt:message key="local.admin.add.room.button.add"
                                                                bundle="${messages}"/></button>

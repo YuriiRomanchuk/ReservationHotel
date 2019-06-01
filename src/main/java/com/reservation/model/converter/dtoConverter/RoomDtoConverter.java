@@ -3,7 +3,6 @@ package com.reservation.model.converter.dtoConverter;
 import com.reservation.model.converter.Converter;
 import com.reservation.model.dto.RoomDto;
 import com.reservation.model.entity.Room;
-import com.reservation.model.enums.ApartmentСlass;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,6 +18,7 @@ public class RoomDtoConverter implements Converter<HttpServletRequest, RoomDto> 
         roomDto.setPlaceNumber(Integer.valueOf(request.getParameter("placeNumber")));
         roomDto.setApartmentСlass(request.getParameter("apartmentClass"));
         roomDto.setRoomNumber(Integer.valueOf(request.getParameter("roomNumber")));
+        roomDto.setPrice(Integer.valueOf(request.getParameter("price")));
         LOGGER.debug("Room dto is converted from request!");
         return roomDto;
     }
@@ -30,6 +30,7 @@ public class RoomDtoConverter implements Converter<HttpServletRequest, RoomDto> 
         roomDto.setRoomNumber(room.getRoomNumber());
         roomDto.setApartmentСlass(room.getApartmentСlass().toString());
         roomDto.setPlaceNumber(room.getPlaceNumber());
+        roomDto.setPrice(room.getPrice());
         LOGGER.debug("Room dto is converted by entity!");
         return roomDto;
     }
