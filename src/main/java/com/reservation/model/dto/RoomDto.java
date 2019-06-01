@@ -1,13 +1,11 @@
 package com.reservation.model.dto;
 
-import com.reservation.model.enums.ApartmentСlass;
-
 public class RoomDto {
 
     private int id;
     private int roomNumber;
     private int placeNumber;
-    private ApartmentСlass apartmentСlass;
+    private String apartmentСlass;
 
     public int getId() {
         return id;
@@ -21,7 +19,7 @@ public class RoomDto {
         return placeNumber;
     }
 
-    public ApartmentСlass getApartmentСlass() {
+    public String getApartmentСlass() {
         return apartmentСlass;
     }
 
@@ -37,7 +35,7 @@ public class RoomDto {
         this.placeNumber = placeNumber;
     }
 
-    public void setApartmentСlass(ApartmentСlass apartmentСlass) {
+    public void setApartmentСlass(String apartmentСlass) {
         this.apartmentСlass = apartmentСlass;
     }
 }

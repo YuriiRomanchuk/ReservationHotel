@@ -26,10 +26,7 @@ public class RoomController {
 
         View view;
         try {
-            int[] placesNumber = {1, 2, 3, 4};
             view = validateAddRoom(roomDto);
-            view.addParameter("apartmentsClass", ApartmentСlass.values());
-            view.addParameter("placesNumber", placesNumber);
         } catch (ServiceException e) {
             view = receiveViewModel("admin-add-room", e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
             view.addParameter("roomDto", roomDto);
@@ -59,7 +56,11 @@ public class RoomController {
     }
 
     public View showAddRoomPage() {
-        return new ViewModel("WEB-INF/jsp/admin/admin-add-room.jsp");
+        View view = new ViewModel("WEB-INF/jsp/admin/admin-add-room.jsp");
+        int[] placesNumber = {1, 2, 3, 4};
+        view.addParameter("apartmentsClass", ApartmentСlass.values());
+        view.addParameter("placesNumber", placesNumber);
+        return view;
     }
 
 }

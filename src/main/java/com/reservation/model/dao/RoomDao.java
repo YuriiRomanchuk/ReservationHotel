@@ -18,7 +18,7 @@ public class RoomDao implements GenericDao<Room> {
     @Override
     public void insert(Room entity) {
 
-        final String query = "insert into rooms (room_number, place_number, apartment_class) values(?,?,?";
+        final String query = "insert into rooms (room_number, place_number, class) values(?,?,?)";
 
         dataSource.update(query, ps -> {
             ps.setInt(1, entity.getRoomNumber());

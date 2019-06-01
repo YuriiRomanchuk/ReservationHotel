@@ -12,6 +12,16 @@ create table if not exists users
   PRIMARY KEY (id)
 );
 
+create table if not exists rooms
+(
+  id           SERIAL      NOT NULL,
+  place_number int         NOT NULL,
+  class        varchar(25) NOT NULL,
+  room_number  int         NOT NULL,
+  PRIMARY KEY (id)
+);
+
+
 /*create table if not exists films
 (
   id                  SERIAL       NOT NULL,

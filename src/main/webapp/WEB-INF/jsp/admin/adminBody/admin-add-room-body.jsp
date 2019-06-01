@@ -19,7 +19,6 @@
 
 <c:set var='error' value="${Error}"/>
 <div class="col w-100">
-
     <c:if test="${error !=null}">
         <div id="my-alert" class="alert alert-danger alert-dismissible fade show w-100" role="alert">
                 ${error}
@@ -31,7 +30,6 @@
     </c:if>
 </div>
 
-
 <h1><fmt:message key="local.admin.add.room" bundle="${messages}"/></h1>
 <form id="form" method="post" action="admin-add-room" class="needs-validation" novalidate>
     <div class="form-group">
@@ -39,25 +37,22 @@
         <select name="placeNumber" id="placeNumber" class="form-control" title="placeNumber" required="required">
             <option selected><fmt:message key="local.admin.add.room.placeNumber.placeholder" bundle="${messages}"/></option>
             <c:forEach var="place" items="${placesNumber}">
-                <c:choose>
-                    <option selected="selected" value=${place}</option>
-                </c:choose>
+                 <option value=${place}>${place} </option>
+                ${place}
             </c:forEach>
         </select>
         <label for="apartmentClass"><fmt:message key="local.admin.add.room.apartmentClass" bundle="${messages}"/></label>
         <select name="apartmentClass" id="apartmentClass" class="form-control" title="apartmentClass" required="required">
             <option selected><fmt:message key="local.admin.add.room.apartmentClass.placeholder" bundle="${messages}"/></option>
-            <c:forEach var="class" items="${apartmentsClass}">
-            <c:choose>
-            <option selected="selected" value=${class}</option>
-                </c:choose>
-                </c:forEach>
+            <c:forEach var="apartmentClass" items="${apartmentsClass}">
+                  <option value=${apartmentClass}>${apartmentClass} </option>
+                ${apartmentClass}
+             </c:forEach>
         </select>
-
         <label for="roomNumber"><fmt:message key="local.admin.add.room.roomNumber" bundle="${messages}"/></label>
         <input required type="text" class="form-control" id="roomNumber" name="roomNumber"
                placeholder="<fmt:message key="local.admin.add.room.roomNumber.placeholder" bundle="${messages}"/>"
-               pattern="<fmt:message key="regexStringNumber" bundle="${regexpValidator}"/>">
+               pattern="<fmt:message key="regexNumber" bundle="${regexpValidator}"/>">
 
     </div>
     <button type="submit" class="btn btn-primary"><fmt:message key="local.admin.add.room.button.add"
