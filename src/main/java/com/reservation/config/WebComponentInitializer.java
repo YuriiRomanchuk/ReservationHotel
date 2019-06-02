@@ -1,14 +1,14 @@
 package com.reservation.config;
 
-import com.reservation.controller.ChangeLanguageController;
-import com.reservation.controller.RoomController;
-import com.reservation.controller.UserController;
-import com.reservation.controller.WelcomeController;
+import com.reservation.controller.*;
+import com.reservation.model.converter.dtoConverter.RequestRoomDtoConverter;
 import com.reservation.model.converter.dtoConverter.RoomDtoConverter;
 import com.reservation.model.converter.dtoConverter.UserDtoConverter;
 import com.reservation.model.converter.dtoConverter.UserLoginDtoConverter;
+import com.reservation.model.converter.entityConverter.RequestRoomConverter;
 import com.reservation.model.converter.entityConverter.RoomConverter;
 import com.reservation.model.converter.entityConverter.UserConverter;
+import com.reservation.service.RequestRoomService;
 import com.reservation.service.RoomService;
 import com.reservation.service.UserService;
 import com.reservation.servlet.RequestResolver;
@@ -25,13 +25,16 @@ public class WebComponentInitializer {
     private final UserController userController;
     private final ChangeLanguageController changeLanguageController;
     private final RoomController roomController;
+    private final RequestRoomController requestRoomController;
 
     private final UserService userService;
     private final RoomService roomService;
+    private final RequestRoomService requestRoomService;
 
     private final UserLoginDtoConverter userLoginDtoConverter;
     private final UserDtoConverter userDtoConverter;
     private final RoomDtoConverter roomDtoConverter;
+    private final RequestRoomDtoConverter requestRoomDtoConverter;
 
     private final UserRegistrationDataValidator userRegistrationValidator;
     private final UserLoginValidator userLoginValidator;
@@ -39,6 +42,7 @@ public class WebComponentInitializer {
 
     private final UserConverter userConverter;
     private final RoomConverter roomConverter;
+    private final RequestRoomConverter requestRoomConverter;
 
     private WebComponentInitializer() {
 
@@ -52,17 +56,21 @@ public class WebComponentInitializer {
         userLoginDtoConverter = new UserLoginDtoConverter();
         userDtoConverter = new UserDtoConverter();
         roomDtoConverter = new RoomDtoConverter();
+        requestRoomDtoConverter = new RequestRoomDtoConverter(userDtoConverter);
 
         userConverter = new UserConverter();
         roomConverter = new RoomConverter();
+        requestRoomConverter = new RequestRoomConverter(userConverter);
 
         userService = new UserService(dataComponentInitializer.getUserDao(), userConverter);
         roomService = new RoomService(dataComponentInitializer.getRoomDao(), roomConverter, roomDtoConverter);
+        requestRoomService = new RequestRoomService(dataComponentInitializer.getRequestRoomDao(), requestRoomConverter, requestRoomDtoConverter);
 
         changeLanguageController = new ChangeLanguageController();
         welcomeController = new WelcomeController();
         userController = new UserController(userService, userRegistrationValidator, userLoginValidator);
         roomController = new RoomController(roomService, addRoomValidator);
+        requestRoomController = new RequestRoomController(requestRoomService);
 
         requestResolver = new RequestResolver(this);
     }
@@ -113,6 +121,14 @@ public class WebComponentInitializer {
 
     public RoomDtoConverter getRoomDtoConverter() {
         return roomDtoConverter;
+    }
+
+    public RequestRoomController getRequestRoomController() {
+        return requestRoomController;
+    }
+
+    public RequestRoomDtoConverter getRequestRoomDtoConverter() {
+        return requestRoomDtoConverter;
     }
 }
 
