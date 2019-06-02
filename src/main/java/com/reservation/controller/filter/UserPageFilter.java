@@ -55,7 +55,7 @@ public class UserPageFilter implements Filter {
         if (!redirect) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
-            redireсtRules(userAuthorization, servletResponse, httpRequest);
+            redirectRules(userAuthorization, servletResponse, httpRequest);
         }
 
     }
@@ -73,7 +73,7 @@ public class UserPageFilter implements Filter {
         return forbiddenPages.stream().anyMatch(charSequence -> httpRequest.getRequestURI().contains(charSequence.trim()));
     }
 
-    private void redireсtRules(UserAuthorization userAuthorization, ServletResponse servletResponse, HttpServletRequest httpRequest) throws IOException {
+    private void redirectRules(UserAuthorization userAuthorization, ServletResponse servletResponse, HttpServletRequest httpRequest) throws IOException {
 
         if (userAuthorization == null) {
             ((HttpServletResponse) servletResponse).sendRedirect(httpRequest.getContextPath() + "/main/login");
