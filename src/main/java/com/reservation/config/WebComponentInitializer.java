@@ -9,6 +9,7 @@ import com.reservation.service.RequestRoomService;
 import com.reservation.service.RoomService;
 import com.reservation.service.UserService;
 import com.reservation.servlet.RequestResolver;
+import com.reservation.validator.AddRequestRoomValidator;
 import com.reservation.validator.AddRoomValidator;
 import com.reservation.validator.UserLoginValidator;
 import com.reservation.validator.UserRegistrationDataValidator;
@@ -38,6 +39,7 @@ public class WebComponentInitializer {
     private final UserRegistrationDataValidator userRegistrationValidator;
     private final UserLoginValidator userLoginValidator;
     private final AddRoomValidator addRoomValidator;
+    private final AddRequestRoomValidator addRequestRoomValidator;
 
     private final UserConverter userConverter;
     private final RoomConverter roomConverter;
@@ -51,6 +53,7 @@ public class WebComponentInitializer {
         userRegistrationValidator = new UserRegistrationDataValidator();
         userLoginValidator = new UserLoginValidator();
         addRoomValidator = new AddRoomValidator();
+        addRequestRoomValidator = new AddRequestRoomValidator();
 
         userLoginDtoConverter = new UserLoginDtoConverter();
         userDtoConverter = new UserDtoConverter();
@@ -71,7 +74,7 @@ public class WebComponentInitializer {
         welcomeController = new WelcomeController();
         userController = new UserController(userService, userRegistrationValidator, userLoginValidator);
         roomController = new RoomController(roomService, addRoomValidator);
-        requestRoomController = new RequestRoomController(requestRoomService);
+        requestRoomController = new RequestRoomController(requestRoomService, addRequestRoomValidator);
 
         requestResolver = new RequestResolver(this);
     }
