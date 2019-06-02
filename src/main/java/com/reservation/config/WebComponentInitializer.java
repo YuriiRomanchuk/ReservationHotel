@@ -1,10 +1,7 @@
 package com.reservation.config;
 
 import com.reservation.controller.*;
-import com.reservation.model.converter.dtoConverter.RequestRoomDtoConverter;
-import com.reservation.model.converter.dtoConverter.RoomDtoConverter;
-import com.reservation.model.converter.dtoConverter.UserDtoConverter;
-import com.reservation.model.converter.dtoConverter.UserLoginDtoConverter;
+import com.reservation.model.converter.dtoConverter.*;
 import com.reservation.model.converter.entityConverter.RequestRoomConverter;
 import com.reservation.model.converter.entityConverter.RoomConverter;
 import com.reservation.model.converter.entityConverter.UserConverter;
@@ -35,6 +32,8 @@ public class WebComponentInitializer {
     private final UserDtoConverter userDtoConverter;
     private final RoomDtoConverter roomDtoConverter;
     private final RequestRoomDtoConverter requestRoomDtoConverter;
+    private final UserDtoFromEntityConverter userDtoFromEntityConverter;
+    private final RequestRoomDtoFromEntityConverter requestRoomDtoFromEntityConverter;
 
     private final UserRegistrationDataValidator userRegistrationValidator;
     private final UserLoginValidator userLoginValidator;
@@ -57,6 +56,8 @@ public class WebComponentInitializer {
         userDtoConverter = new UserDtoConverter();
         roomDtoConverter = new RoomDtoConverter();
         requestRoomDtoConverter = new RequestRoomDtoConverter(userDtoConverter);
+        userDtoFromEntityConverter = new UserDtoFromEntityConverter();
+        requestRoomDtoFromEntityConverter = new RequestRoomDtoFromEntityConverter(userDtoFromEntityConverter);
 
         userConverter = new UserConverter();
         roomConverter = new RoomConverter();
@@ -64,7 +65,7 @@ public class WebComponentInitializer {
 
         userService = new UserService(dataComponentInitializer.getUserDao(), userConverter);
         roomService = new RoomService(dataComponentInitializer.getRoomDao(), roomConverter, roomDtoConverter);
-        requestRoomService = new RequestRoomService(dataComponentInitializer.getRequestRoomDao(), requestRoomConverter, requestRoomDtoConverter);
+        requestRoomService = new RequestRoomService(dataComponentInitializer.getRequestRoomDao(), requestRoomConverter, requestRoomDtoFromEntityConverter);
 
         changeLanguageController = new ChangeLanguageController();
         welcomeController = new WelcomeController();

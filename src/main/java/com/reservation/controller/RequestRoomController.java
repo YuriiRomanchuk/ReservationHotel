@@ -40,6 +40,17 @@ public class RequestRoomController {
         return view;
     }
 
+    public View showRequestTreatment() {
+        View view;
+        try {
+            view = new ViewModel("WEB-INF/jsp/admin/admin-request-treatment.jsp");
+            view.addParameter("requestRooms", requestRoomService.receiveNewRequestRooms());
+        } catch (ServiceException e) {
+            view = receiveViewModel("admin-personal-area", e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
+        }
+        return view;
+    }
+
     private View receiveViewModel(String path, String error) {
         View view;
         view = new ViewModel(path);

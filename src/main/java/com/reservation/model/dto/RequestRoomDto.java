@@ -8,8 +8,8 @@ public class RequestRoomDto {
     private int placeNumber;
     private UserDto userDto;
     private String apartmentClass;
-    private Date arrivalDate;
-    private Date departureDate;
+    private String arrivalDate;
+    private String departureDate;
     private String requestRoomStatus;
 
     public int getId() {
@@ -28,11 +28,11 @@ public class RequestRoomDto {
         return apartmentClass;
     }
 
-    public Date getArrivalDate() {
+    public String getArrivalDate() {
         return arrivalDate;
     }
 
-    public Date getDepartureDate() {
+    public String getDepartureDate() {
         return departureDate;
     }
 
@@ -52,11 +52,11 @@ public class RequestRoomDto {
         this.apartmentClass = apartmentClass;
     }
 
-    public void setArrivalDate(Date arrivalDate) {
+    public void setArrivalDate(String arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 
-    public void setDepartureDate(Date departureDate) {
+    public void setDepartureDate(String departureDate) {
         this.departureDate = departureDate;
     }
 

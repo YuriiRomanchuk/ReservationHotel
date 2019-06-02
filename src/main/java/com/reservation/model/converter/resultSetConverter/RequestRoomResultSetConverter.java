@@ -8,6 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class RequestRoomResultSetConverter implements Converter<ResultSet, RequestRoom> {
 
@@ -19,8 +20,9 @@ public class RequestRoomResultSetConverter implements Converter<ResultSet, Reque
     }
 
     @Override
-    public RequestRoom convert(ResultSet resultSet) throws Exception {
+    public RequestRoom convert(ResultSet resultSet) throws SQLException {
         RequestRoom requestRoom = new RequestRoom();
+        requestRoom.setId(resultSet.getInt("request_id"));
         requestRoom.setPlaceNumber(resultSet.getInt("place_number"));
         requestRoom.setApartmentСlass(ApartmentСlass.valueOf(resultSet.getString("class")));
         requestRoom.setRequestRoomStatus(RequestRoomStatus.valueOf(resultSet.getString("status")));

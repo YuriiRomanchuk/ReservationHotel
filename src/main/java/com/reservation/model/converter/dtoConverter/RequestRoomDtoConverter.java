@@ -1,7 +1,6 @@
 package com.reservation.model.converter.dtoConverter;
 
 import com.reservation.model.converter.Converter;
-import com.reservation.model.converter.utility.TimeConverter;
 import com.reservation.model.dto.RequestRoomDto;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,8 +23,8 @@ public class RequestRoomDtoConverter implements Converter<HttpServletRequest, Re
         requestRoomDto.setApartmentClass(request.getParameter("apartmentClass"));
         requestRoomDto.setRequestRoomStatus(request.getParameter("status"));
         requestRoomDto.setUserDto(userDtoConverter.convertFromRequestForUserId(request));
-        requestRoomDto.setArrivalDate(TimeConverter.convertStringToDate(request.getParameter("arrivalDate"), "yyyy-mm-dd"));
-        requestRoomDto.setDepartureDate(TimeConverter.convertStringToDate(request.getParameter("departureDate"), "yyyy-mm-dd"));
+        requestRoomDto.setArrivalDate(request.getParameter("arrivalDate"));
+        requestRoomDto.setDepartureDate(request.getParameter("departureDate"));
         LOGGER.debug("Room dto is converted from request!");
         return requestRoomDto;
     }

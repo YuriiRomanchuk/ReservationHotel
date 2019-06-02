@@ -1,6 +1,7 @@
 package com.reservation.model.converter.entityConverter;
 
 import com.reservation.model.converter.Converter;
+import com.reservation.model.converter.utility.TimeConverter;
 import com.reservation.model.dto.RequestRoomDto;
 import com.reservation.model.entity.RequestRoom;
 import com.reservation.model.enums.ApartmentСlass;
@@ -24,8 +25,8 @@ public class RequestRoomConverter implements Converter<RequestRoomDto, RequestRo
         requestRoom.setUser(userConverter.convert(requestRoomDto.getUserDto()));
         requestRoom.setApartmentСlass(ApartmentСlass.valueOf(requestRoomDto.getApartmentClass()));
         requestRoom.setRequestRoomStatus(RequestRoomStatus.valueOf(requestRoomDto.getRequestRoomStatus()));
-        requestRoom.setArrivalDate(requestRoomDto.getArrivalDate());
-        requestRoom.setDepartureDate(requestRoomDto.getDepartureDate());
+        requestRoom.setArrivalDate(TimeConverter.convertStringToDate(requestRoomDto.getArrivalDate(), "yyyy-mm-dd"));
+        requestRoom.setDepartureDate(TimeConverter.convertStringToDate(requestRoomDto.getDepartureDate(), "yyyy-mm-dd"));
         requestRoom.setPlaceNumber(requestRoomDto.getPlaceNumber());
         LOGGER.debug("Request room is converted from room dto!");
         return requestRoom;

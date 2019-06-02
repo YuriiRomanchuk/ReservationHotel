@@ -84,6 +84,7 @@
             <th><fmt:message key="local.admin.request.treatment.table.departure_date" bundle="${messages}"/></th>
             <th><fmt:message key="local.admin.request.treatment.table.user_id" bundle="${messages}"/></th>
             <th><fmt:message key="local.admin.request.treatment.table.user_nickname" bundle="${messages}"/></th>
+            <th><fmt:message key="local.admin.request.treatment.table.action" bundle="${messages}"/></th>
         </thead>
         <c:forEach var="requestRoom" items="${requestRooms}" varStatus="loop">
             <tr>
@@ -92,6 +93,13 @@
                            name="request_id_${loop.index}" size="1"
                            readonly
                            value=" ${requestRoom.getId()}">
+                </td>
+
+                <td>
+                    <input type="text" class="form-control" id="place_number_${loop.index}"
+                           name="place_number_${loop.index}" size="1"
+                           readonly
+                           value=" ${requestRoom.getPlaceNumber()}">
                 </td>
                 <td>
                     <input type="text" class="form-control" id="class_${loop.index}"

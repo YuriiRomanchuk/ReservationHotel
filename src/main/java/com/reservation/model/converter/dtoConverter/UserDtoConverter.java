@@ -3,7 +3,6 @@ package com.reservation.model.converter.dtoConverter;
 
 import com.reservation.model.converter.Converter;
 import com.reservation.model.dto.UserDto;
-import com.reservation.model.entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,20 +23,6 @@ public class UserDtoConverter implements Converter<HttpServletRequest, UserDto> 
         userDto.setEmail(request.getParameter("email"));
         userDto.setPhone(request.getParameter("phone"));
         LOGGER.debug("User dto is converted from request!");
-        return userDto;
-    }
-
-    public UserDto convertFromUserEntity(User user) {
-        UserDto userDto = new UserDto();
-        userDto.setLogin(user.getLogin());
-        userDto.setPassword(user.getPassword());
-        userDto.setLastName(user.getLastName());
-        userDto.setFirstName(user.getFirstName());
-        userDto.setMiddleName(user.getMiddleName());
-        userDto.setEmail(user.getEmail());
-        userDto.setPhone(user.getPhone());
-        userDto.setRole(user.getRole());
-        LOGGER.debug("User dto is converted from entity!");
         return userDto;
     }
 

@@ -52,4 +52,17 @@ public class RequestRoomDao implements GenericDao<RequestRoom> {
     public void delete(int id) {
 
     }
+
+    public List<RequestRoom> findByStatus(String status) throws Exception {
+
+        return dataSource.receiveRecords("SELECT temp.*, users.*\n" +
+                        "FROM\n" +
+                        "(SELECT *, id as request_id from request_rooms where status = ?) temp LEFT JOIN users ON temp.user_id = users.id",
+                resultSet -> roomResultSetConverter.convert(resultSet),
+                preparedStatement ->
+                {
+                    preparedStatement.setString(1, status);
+                });
+    }
+
 }
