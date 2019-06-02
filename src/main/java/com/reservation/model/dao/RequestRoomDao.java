@@ -20,7 +20,7 @@ public class RequestRoomDao implements GenericDao<RequestRoom> {
     @Override
     public void insert(RequestRoom entity) {
 
-        final String query = "insert into request_rooms (place_number, arrival_date, departure_date, class, status, user_id) values(?,?,?,?,?)";
+        final String query = "insert into request_rooms (place_number, arrival_date, departure_date, class, status, user_id) values(?,?,?,?,?,?)";
 
         dataSource.update(query, ps -> {
             ps.setInt(1, entity.getPlaceNumber());

@@ -30,10 +30,8 @@
     </c:if>
 </div>
 
-requestRoom.setUser(userConverter.convert(requestRoomDto.getUserDto()));
-
 <h1><fmt:message key="local.user.add.request.room" bundle="${messages}"/></h1>
-<form id="form" method="post" action="admin-add-room" class="needs-validation" novalidate>
+<form id="form" method="post" action="user-add-request-room" class="needs-validation" novalidate>
 
     <label for="user_id"><fmt:message key="local.user.request.room.user.id" bundle="${messages}"/></label>
     <input required type="text" class="form-control" id="user_id" name="user_id" size="1"
@@ -58,11 +56,11 @@ requestRoom.setUser(userConverter.convert(requestRoomDto.getUserDto()));
         </select>
 
         <label for="arrivalDate"><fmt:message key="local.user.request.room.arrival.date" bundle="${messages}"/></label>
-        <input required type="text" class="form-control" id="arrivalDate" name="arrivalDate"
+        <input required type="date" class="form-control" id="arrivalDate" name="arrivalDate"
                placeholder="<fmt:message key="local.user.request.room.arrival.date.placeholder" bundle="${messages}"/>">
 
         <label for="departureDate"><fmt:message key="local.user.add.request.room.departure.date" bundle="${messages}"/></label>
-        <input required type="text" class="form-control" id="departureDate" name="departureDate"
+        <input required type="date" class="form-control" id="departureDate" name="departureDate"
                placeholder="<fmt:message key="local.user.add.request.room.departure.date.placeholder" bundle="${messages}"/>">
 
         <label for="status"><fmt:message key="local.user.add.request.room.status" bundle="${messages}"/></label>

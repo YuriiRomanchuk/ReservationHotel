@@ -31,13 +31,13 @@ public class RequestResolver {
         getControllers.put("/user-personal-area", r -> webComponentInitializer.getUserController().showUserPersonalArea(webComponentInitializer.getUserDtoConverter().convertFromRequestForUserId(r)));
         getControllers.put("/logout", r -> webComponentInitializer.getUserController().logout());
         getControllers.put("/admin-add-room", r -> webComponentInitializer.getRoomController().showAddRoomPage());
-        getControllers.put("/user-request-room", r -> webComponentInitializer.getRequestRoomController().showAddRequestRoomPage());
+        getControllers.put("/user-add-request-room", r -> webComponentInitializer.getRequestRoomController().showAddRequestRoomPage());
 
         postControllers.put("/login", r -> webComponentInitializer.getUserController().loginUser(webComponentInitializer.getUserLoginDtoConverter().convert(r)));
         postControllers.put("/registration-form", r -> webComponentInitializer.getUserController().createUser(webComponentInitializer.getUserDtoConverter().convert(r)));
         postControllers.put("/change_language", r -> webComponentInitializer.getChangeLanguageController().changeLanguage());
         postControllers.put("/admin-add-room", r -> webComponentInitializer.getRoomController().createRoom(webComponentInitializer.getRoomDtoConverter().convert(r)));
-        getControllers.put("/user-request-room", r -> webComponentInitializer.getRequestRoomController().createRoom(webComponentInitializer.getRequestRoomDtoConverter().convert(r)));
+        postControllers.put("/user-add-request-room", r -> webComponentInitializer.getRequestRoomController().createRequestRoom(webComponentInitializer.getRequestRoomDtoConverter().convert(r)));
 
     }
 

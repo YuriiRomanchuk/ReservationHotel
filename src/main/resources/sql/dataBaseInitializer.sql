@@ -22,6 +22,20 @@ create table if not exists rooms
   PRIMARY KEY (id)
 );
 
+create table if not exists request_rooms
+(
+  id             SERIAL      NOT NULL,
+  place_number   int         NOT NULL,
+  class          varchar(25) NOT NULL,
+  status         varchar(25) NOT NULL,
+  arrival_date   timestamp   NOT NULL,
+  departure_date timestamp   NOT NULL,
+  user_id        int         NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT request_rooms_user_id_fkey FOREIGN KEY (user_id)
+    REFERENCES users (id)
+);
+
 
 /*create table if not exists films
 (

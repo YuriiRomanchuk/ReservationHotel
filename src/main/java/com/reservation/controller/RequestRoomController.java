@@ -20,11 +20,11 @@ public class RequestRoomController {
         this.requestRoomService = requestRoomService;
     }
 
-    public View createRoom(RequestRoomDto requestRoomDto) {
+    public View createRequestRoom(RequestRoomDto requestRoomDto) {
         View view;
         try {
             requestRoomService.createRequestRoom(requestRoomDto);
-            view = receiveViewModel("user-personal-area", "Room added!");
+            view = receiveViewModel("user-personal-area", "Request added!");
         } catch (ServiceException e) {
             view = receiveViewModel("user-add-request-room", e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
             view.addParameter("requestRoomDto", requestRoomDto);
@@ -33,7 +33,7 @@ public class RequestRoomController {
     }
 
     public View showAddRequestRoomPage() {
-        View view = new ViewModel("WEB-INF/jsp/admin/user-add-request-room.jsp");
+        View view = new ViewModel("WEB-INF/jsp/user/user-add-request-room.jsp");
         int[] placesNumber = {1, 2, 3, 4};
         view.addParameter("apartmentsClass", ApartmentСlass.values());
         view.addParameter("placesNumber", placesNumber);
