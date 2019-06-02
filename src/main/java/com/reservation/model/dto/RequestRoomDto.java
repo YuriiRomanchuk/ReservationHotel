@@ -10,6 +10,7 @@ public class RequestRoomDto {
     private String apartmentClass;
     private Date arrivalDate;
     private Date departureDate;
+    private String requestRoomStatus;
 
     public int getId() {
         return id;
@@ -57,5 +58,13 @@ public class RequestRoomDto {
 
     public void setDepartureDate(Date departureDate) {
         this.departureDate = departureDate;
+    }
+
+    public String getRequestRoomStatus() {
+        return requestRoomStatus;
+    }
+
+    public void setRequestRoomStatus(String requestRoomStatus) {
+        this.requestRoomStatus = requestRoomStatus;
     }
 }

@@ -4,6 +4,7 @@ import com.reservation.model.converter.Converter;
 import com.reservation.model.dto.RequestRoomDto;
 import com.reservation.model.entity.RequestRoom;
 import com.reservation.model.enums.ApartmentСlass;
+import com.reservation.model.enums.RequestRoomStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,6 +23,7 @@ public class RequestRoomConverter implements Converter<RequestRoomDto, RequestRo
         requestRoom.setId(requestRoomDto.getId());
         requestRoom.setUser(userConverter.convert(requestRoomDto.getUserDto()));
         requestRoom.setApartmentСlass(ApartmentСlass.valueOf(requestRoomDto.getApartmentClass()));
+        requestRoom.setRequestRoomStatus(RequestRoomStatus.valueOf(requestRoomDto.getRequestRoomStatus()));
         requestRoom.setArrivalDate(requestRoomDto.getArrivalDate());
         requestRoom.setDepartureDate(requestRoomDto.getDepartureDate());
         requestRoom.setPlaceNumber(requestRoomDto.getPlaceNumber());

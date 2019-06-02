@@ -22,6 +22,7 @@ public class RequestRoomDtoConverter implements Converter<HttpServletRequest, Re
         RequestRoomDto requestRoomDto = new RequestRoomDto();
         requestRoomDto.setPlaceNumber(Integer.valueOf(request.getParameter("placeNumber")));
         requestRoomDto.setApartmentClass(request.getParameter("apartmentClass"));
+        requestRoomDto.setRequestRoomStatus(request.getParameter("status"));
         requestRoomDto.setUserDto(userDtoConverter.convertFromRequestForUserId(request));
         requestRoomDto.setArrivalDate(TimeConverter.convertStringToDate(request.getParameter("arrivalDate"), "yyyy-mm-dd"));
         requestRoomDto.setDepartureDate(TimeConverter.convertStringToDate(request.getParameter("departureDate"), "yyyy-mm-dd"));

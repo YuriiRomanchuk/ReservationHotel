@@ -3,6 +3,7 @@ package com.reservation.model.converter.resultSetConverter;
 import com.reservation.model.converter.Converter;
 import com.reservation.model.entity.RequestRoom;
 import com.reservation.model.enums.ApartmentСlass;
+import com.reservation.model.enums.RequestRoomStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,6 +23,7 @@ public class RequestRoomResultSetConverter implements Converter<ResultSet, Reque
         RequestRoom requestRoom = new RequestRoom();
         requestRoom.setPlaceNumber(resultSet.getInt("place_number"));
         requestRoom.setApartmentСlass(ApartmentСlass.valueOf(resultSet.getString("class")));
+        requestRoom.setRequestRoomStatus(RequestRoomStatus.valueOf(resultSet.getString("status")));
         requestRoom.setArrivalDate(resultSet.getTimestamp("arrival_date"));
         requestRoom.setDepartureDate(resultSet.getTimestamp("departure_date"));
         requestRoom.setUser(userResultSetConverter.convert(resultSet));

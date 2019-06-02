@@ -1,6 +1,7 @@
 package com.reservation.model.entity;
 
 import com.reservation.model.enums.ApartmentСlass;
+import com.reservation.model.enums.RequestRoomStatus;
 
 import java.util.Date;
 
@@ -12,6 +13,7 @@ public class RequestRoom {
     private ApartmentСlass apartmentСlass;
     private Date arrivalDate;
     private Date departureDate;
+    private RequestRoomStatus requestRoomStatus;
 
     public int getId() {
         return id;
@@ -59,5 +61,13 @@ public class RequestRoom {
 
     public void setDepartureDate(Date departureDate) {
         this.departureDate = departureDate;
+    }
+
+    public RequestRoomStatus getRequestRoomStatus() {
+        return requestRoomStatus;
+    }
+
+    public void setRequestRoomStatus(RequestRoomStatus requestRoomStatus) {
+        this.requestRoomStatus = requestRoomStatus;
     }
 }
