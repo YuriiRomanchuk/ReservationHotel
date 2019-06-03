@@ -28,4 +28,9 @@ public class RequestRoomDtoConverter implements Converter<HttpServletRequest, Re
         LOGGER.debug("Room dto is converted from request!");
         return requestRoomDto;
     }
+
+    public int receiveRequestRoomId(HttpServletRequest request) {
+        String numberOfLine = request.getParameter("search-room");
+        return Integer.valueOf(request.getParameter("session_id_" + numberOfLine).trim());
+    }
 }

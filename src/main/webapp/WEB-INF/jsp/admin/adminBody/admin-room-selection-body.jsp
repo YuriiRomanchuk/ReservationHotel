@@ -18,6 +18,9 @@
 </head>
 
 <body>
+<c:set var='filmSessionDto' value="${filmSessionDto}"/>
+<c:set var='currentFilm_id' value="${filterFilmId}"/>
+
 
 <c:set var='error' value="${Error}"/>
 <div class="col w-100">
@@ -38,6 +41,39 @@
 </div>
 
 <div class="w-100 d-none d-md-block"></div>
+
+<%--<form method="post" action="admin-session">
+    <div class="form-group field-middle_name row">
+        <div class="col-sm-6 col-md-6 col-xs-6 no-padding">
+            <label for="film_filter"><fmt:message key="local.admin.session.film" bundle="${messages}"/></label>
+            <select name="film_filter" id="film_filter" class="form-control" title="Film" required="required">
+                <option selected><fmt:message key="local.admin.session.film.choose" bundle="${messages}"/></option>
+                <c:forEach var="film" items="${filmsDto}">
+                    <c:choose>
+                        <c:when test="${ (currentFilm_id !=null && film.getId() == currentFilm_id)}">
+                            <option selected="selected" value=${film.getId()}>${film.getName()}</option>
+                        </c:when>
+                        <c:otherwise>
+                            <option value=${film.getId()}>${film.getName() }
+                            </option>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+            </select>
+        </div>
+        <div class="col-sm-6 col-md-6 col-xs-6 no-padding">
+            <label for="date_filter"><fmt:message key="local.admin.request.treatment.date" bundle="${messages}"/></label>
+            <input required type="date" class="form-control" id="date_filter" name="date_filter"
+                   placeholder="Enter session date"
+                   value=${filterDate}>
+        </div>
+    </div>
+    <div class="help-block row"></div>
+
+    <button type="submit" class="btn btn-primary my-sm-2"><fmt:message key="local.admin.session.button.find"
+                                                                       bundle="${messages}"/></button>--%>
+    <%--</form>--%>
+
     <table class="table table-sm table-striped">
         <thead>
         <tr>
