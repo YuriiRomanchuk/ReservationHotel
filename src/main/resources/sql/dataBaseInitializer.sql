@@ -38,13 +38,14 @@ create table if not exists request_rooms
 
 create table if not exists invoices
 (
-  id               SERIAL    NOT NULL,
-  room_id          int       NOT NULL,
-  request_rooms_id int       NOT NULL,
-  user_id          int       NOT NULL,
-  arrival_date     timestamp NOT NULL,
-  departure_date   timestamp NOT NULL,
-  total_price      int       NOT NULL,
+  id               SERIAL      NOT NULL,
+  room_id          int         NOT NULL,
+  request_rooms_id int         NOT NULL,
+  user_id          int         NOT NULL,
+  arrival_date     timestamp   NOT NULL,
+  departure_date   timestamp   NOT NULL,
+  total_price      int         NOT NULL,
+  status           varchar(25) NOT NULL,
   PRIMARY KEY (id),
   CONSTRAINT invoices_user_id_fkey FOREIGN KEY (user_id)
     REFERENCES users (id),
