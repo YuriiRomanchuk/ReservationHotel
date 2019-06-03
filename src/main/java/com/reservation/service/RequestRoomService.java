@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 
 public class RequestRoomService {
 
-
     private final RequestRoomDao requestRoomDao;
     private final RequestRoomConverter requestRoomConverter;
     private final RequestRoomDtoFromEntityConverter requestRoomDtoFromEntityConverter;
@@ -29,7 +28,7 @@ public class RequestRoomService {
             RequestRoom requestRoom = requestRoomConverter.convert(requestRoomDto);
             requestRoomDao.insert(requestRoom);
         } catch (Exception e) {
-            throw new ServiceException("Create room failed", e);
+            throw new ServiceException("Create request room failed", e);
         }
     }
 
@@ -42,4 +41,11 @@ public class RequestRoomService {
         }
     }
 
+    public RequestRoomDto receiveRequestRoomById(int requestRoomId) throws ServiceException {
+        try {
+            return requestRoomDtoFromEntityConverter.convert(requestRoomDao.findById(requestRoomId));
+        } catch (Exception e) {
+            throw new ServiceException("Request room receive failed", e);
+        }
+    }
 }

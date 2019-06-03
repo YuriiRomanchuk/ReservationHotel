@@ -3,6 +3,7 @@ package com.reservation.model.dao;
 import com.reservation.model.converter.resultSetConverter.RoomResultSetConverter;
 import com.reservation.model.entity.Room;
 
+import java.util.Date;
 import java.util.List;
 
 public class RoomDao implements GenericDao<Room> {
@@ -51,5 +52,13 @@ public class RoomDao implements GenericDao<Room> {
     @Override
     public void delete(int id) {
 
+    }
+
+    public List<Room> receiveFreeRoomsByParameters(Date currentArrivalDate, Date currentDepartureDate, int placeNumber, String apartmentClass) {
+        return dataSource.receiveRecords("select id as room_id, room_number as room_number, place_number as place_number," +
+                        " apartment_class as apartment_class, price from rooms",
+                resultSet -> roomResultSetConverter.convert(resultSet),
+                preparedStatement -> {
+                });
     }
 }

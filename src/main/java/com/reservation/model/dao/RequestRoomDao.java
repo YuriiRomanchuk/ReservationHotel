@@ -35,12 +35,25 @@ public class RequestRoomDao implements GenericDao<RequestRoom> {
 
     @Override
     public RequestRoom findById(int id) {
-        return null;
+
+        return dataSource.receiveFirstRecord("SELECT temp.*, users.*\n" +
+                        "FROM\n" +
+                        "(SELECT *, id as request_id from request_rooms where status = ?) temp LEFT JOIN users ON temp.user_id = users.id",
+                resultSet -> roomResultSetConverter.convert(resultSet),
+                preparedStatement ->
+                {
+                    preparedStatement.setInt(1, id);
+                }).get();
     }
 
     @Override
     public List<RequestRoom> findAll() {
-        return null;
+        return dataSource.receiveRecords("SELECT temp.*, users.*\n" +
+                        "FROM\n" +
+                        "(SELECT *, id as request_id from request_rooms) temp LEFT JOIN users ON temp.user_id = users.id",
+                resultSet -> roomResultSetConverter.convert(resultSet),
+                preparedStatement -> {
+                });
     }
 
     @Override
@@ -53,8 +66,7 @@ public class RequestRoomDao implements GenericDao<RequestRoom> {
 
     }
 
-    public List<RequestRoom> findByStatus(String status) throws Exception {
-
+    public List<RequestRoom> findByStatus(String status) {
         return dataSource.receiveRecords("SELECT temp.*, users.*\n" +
                         "FROM\n" +
                         "(SELECT *, id as request_id from request_rooms where status = ?) temp LEFT JOIN users ON temp.user_id = users.id",
