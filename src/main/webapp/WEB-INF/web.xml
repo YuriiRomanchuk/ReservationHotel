@@ -41,24 +41,24 @@
         </init-param>
         <init-param>
             <param-name>forbiddenPagesUnknown</param-name>
-            <param-value>&lt;!&ndash;admin-personal-area,user-personal-area,admin-add-film,admin-add-room,admin-add-room-place,
-                admin-personal-area, admin-session, admin-session-room, admin-show-all-films, user-session-room,
-                user-session, user-personal-area, user-buy-history&ndash;&gt;
+            <param-value>&lt;!&ndash;admin-personal-area,userDto-personal-area,admin-add-film,admin-add-room,admin-add-room-place,
+                admin-personal-area, admin-session, admin-session-room, admin-show-all-films, userDto-session-room,
+                userDto-session, userDto-personal-area, userDto-buy-history&ndash;&gt;
             </param-value>
         </init-param>
         <init-param>
             <param-name>forbiddenPagesAdmin</param-name>
             <param-value>
-              &lt;!&ndash;  user-personal-area,login,registration-form,user-session-room,user-session,user-personal-area,user-buy-history,
+              &lt;!&ndash;  userDto-personal-area,login,registration-form,userDto-session-room,userDto-session,userDto-personal-area,userDto-buy-history,
                 unknown-session-room,index&ndash;&gt;
             </param-value>
         </init-param>
         <init-param>
             <param-name>allPages</param-name>
             <param-value>
-      &lt;!&ndash;          index,login,registration-form,admin-personal-area,user-personal-area,admin-add-film,admin-add-room,admin-add-room-place,
-                admin-personal-area,admin-session,admin-session-room,admin-show-all-films,user-session-room,
-                user-session,user-personal-area,user-buy-history,unknown-session-room&ndash;&gt;
+      &lt;!&ndash;          index,login,registration-form,admin-personal-area,userDto-personal-area,admin-add-film,admin-add-room,admin-add-room-place,
+                admin-personal-area,admin-session,admin-session-room,admin-show-all-films,userDto-session-room,
+                userDto-session,userDto-personal-area,userDto-buy-history,unknown-session-room&ndash;&gt;
             </param-value>
         </init-param>
     </filter>

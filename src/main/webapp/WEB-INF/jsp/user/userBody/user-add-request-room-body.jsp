@@ -30,40 +30,40 @@
     </c:if>
 </div>
 
-<h1><fmt:message key="local.user.add.request.room" bundle="${messages}"/></h1>
-<form id="form" method="post" action="user-add-request-room" class="needs-validation" novalidate>
+<h1><fmt:message key="local.userDto.add.request.room" bundle="${messages}"/></h1>
+<form id="form" method="post" action="userDto-add-request-room" class="needs-validation" novalidate>
 
-    <label for="user_id"><fmt:message key="local.user.request.room.user.id" bundle="${messages}"/></label>
+    <label for="user_id"><fmt:message key="local.userDto.request.room.userDto.id" bundle="${messages}"/></label>
     <input required type="text" class="form-control" id="user_id" name="user_id" size="1"
            readonly
            value=${sessionScope.user_id}>
     <div class="form-group">
-        <label for="placeNumber"><fmt:message key="local.user.add.request.room.placeNumber" bundle="${messages}"/></label>
+        <label for="placeNumber"><fmt:message key="local.userDto.add.request.room.placeNumber" bundle="${messages}"/></label>
         <select name="placeNumber" id="placeNumber" class="form-control" title="placeNumber" required="required">
-            <option selected><fmt:message key="local.user.add.request.room.placeNumber.placeholder" bundle="${messages}"/></option>
+            <option selected><fmt:message key="local.userDto.add.request.room.placeNumber.placeholder" bundle="${messages}"/></option>
             <c:forEach var="place" items="${placesNumber}">
                  <option value=${place}>${place} </option>
                 ${place}
             </c:forEach>
         </select>
-        <label for="apartmentClass"><fmt:message key="local.user.add.request.room.apartmentClass" bundle="${messages}"/></label>
+        <label for="apartmentClass"><fmt:message key="local.userDto.add.request.room.apartmentClass" bundle="${messages}"/></label>
         <select name="apartmentClass" id="apartmentClass" class="form-control" title="apartmentClass" required="required">
-            <option selected><fmt:message key="local.user.add.request.room.apartmentClass.placeholder" bundle="${messages}"/></option>
+            <option selected><fmt:message key="local.userDto.add.request.room.apartmentClass.placeholder" bundle="${messages}"/></option>
             <c:forEach var="apartmentClass" items="${apartmentsClass}">
                   <option value=${apartmentClass}>${apartmentClass} </option>
                 ${apartmentClass}
              </c:forEach>
         </select>
 
-        <label for="arrivalDate"><fmt:message key="local.user.request.room.arrival.date" bundle="${messages}"/></label>
+        <label for="arrivalDate"><fmt:message key="local.userDto.request.room.arrival.date" bundle="${messages}"/></label>
         <input required type="date" class="form-control" id="arrivalDate" name="arrivalDate"
-               placeholder="<fmt:message key="local.user.request.room.arrival.date.placeholder" bundle="${messages}"/>">
+               placeholder="<fmt:message key="local.userDto.request.room.arrival.date.placeholder" bundle="${messages}"/>">
 
-        <label for="departureDate"><fmt:message key="local.user.add.request.room.departure.date" bundle="${messages}"/></label>
+        <label for="departureDate"><fmt:message key="local.userDto.add.request.room.departure.date" bundle="${messages}"/></label>
         <input required type="date" class="form-control" id="departureDate" name="departureDate"
-               placeholder="<fmt:message key="local.user.add.request.room.departure.date.placeholder" bundle="${messages}"/>">
+               placeholder="<fmt:message key="local.userDto.add.request.room.departure.date.placeholder" bundle="${messages}"/>">
 
-        <label for="status"><fmt:message key="local.user.add.request.room.status" bundle="${messages}"/></label>
+        <label for="status"><fmt:message key="local.userDto.add.request.room.status" bundle="${messages}"/></label>
         <input required type="text" class="form-control" id="status" name="status"
                readonly
                value='NEW'>

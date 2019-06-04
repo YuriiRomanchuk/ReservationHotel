@@ -14,13 +14,13 @@
     <jsp:body>
         <div class="row h-100">
             <!-- left sidebar -->
-            <jsp:include page="/WEB-INF/jsp/template/user-bar.jsp"/>
+            <jsp:include page="/WEB-INF/jsp/template/userDto-bar.jsp"/>
 
             <!-- center content -->
             <div class="col fluid bg-faded py-3">
                 <div class="row my-3 offset-md-3">
                     <div class="col-sm-4">
-                        <jsp:include page="/WEB-INF/jsp/user/userBody/user-add-request-room-body.jsp"/>
+                        <jsp:include page="/WEB-INF/jsp/userDto/userBody/userDto-add-request-room-body.jsp"/>
                     </div>
 
                 </div>

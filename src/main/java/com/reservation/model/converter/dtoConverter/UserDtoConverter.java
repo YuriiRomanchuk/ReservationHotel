@@ -29,10 +29,10 @@ public class UserDtoConverter implements Converter<HttpServletRequest, UserDto> 
     public UserDto convertFromRequestForUserId(HttpServletRequest request) {
         int userId = (Integer) request.getSession().getAttribute("user_id");
         LOGGER.debug("User dto is converted from id!");
-        return convertForUserId(userId);
+        return convertByUserId(userId);
     }
 
-    public UserDto convertForUserId(int userId) {
+    public UserDto convertByUserId(int userId) {
         UserDto userDto = new UserDto();
         userDto.setId(userId);
         LOGGER.debug("User dto is converted from id!");

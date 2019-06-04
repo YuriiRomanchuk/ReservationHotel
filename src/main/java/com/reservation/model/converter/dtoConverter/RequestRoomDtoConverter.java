@@ -41,4 +41,11 @@ public class RequestRoomDtoConverter implements Converter<HttpServletRequest, Re
         return Integer.valueOf(splitURI[splitURI.length - 1]);
     }
 
+
+    public RequestRoomDto convertByRequestId(int requestId) {
+        RequestRoomDto requestRoomDto = new RequestRoomDto();
+        requestRoomDto.setId(requestId);
+        LOGGER.debug("User dto is converted from id!");
+        return requestRoomDto;
+    }
 }

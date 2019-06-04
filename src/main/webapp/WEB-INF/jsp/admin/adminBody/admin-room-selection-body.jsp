@@ -110,7 +110,7 @@
         </div>
 
         <div class="col-sm-6 col-md-6 col-xs-6 no-padding">
-            <label for="request_room_user_id"><fmt:message key="local.admin.room.selection.request.user.id"
+            <label for="request_room_user_id"><fmt:message key="local.admin.room.selection.request.userDto.id"
                                                            bundle="${messages}"/></label>
             <input required type="number" class="form-control" id="request_room_user_id" name="request_room_user_id"
                    readonly

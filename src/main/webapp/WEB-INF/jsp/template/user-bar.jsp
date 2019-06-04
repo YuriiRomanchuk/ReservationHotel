@@ -35,7 +35,7 @@
                         <line x1="12" y1="20" x2="12" y2="4"></line>
                         <line x1="6" y1="20" x2="6" y2="14"></line>
                     </svg>
-                        <fmt:message key="local.user.bar.Statistic"/>
+                        <fmt:message key="local.userDto.bar.Statistic"/>
                 </a>
             </li>
             <li class="nav-item">
@@ -49,7 +49,7 @@
                         <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                         <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                     </svg>
-                        <fmt:message key="local.user.bar.PersonalData"/>
+                        <fmt:message key="local.userDto.bar.PersonalData"/>
                 </a>
             </li>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -57,7 +57,7 @@
             </h6>
 
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/main/user-add-request-room" role="button">
+                <a class="nav-link" href="${pageContext.request.contextPath}/main/userDto-add-request-room" role="button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                          class="feather feather-file-text">
@@ -67,7 +67,7 @@
                         <line x1="16" y1="17" x2="8" y2="17"></line>
                         <polyline points="10 9 9 9 8 9"></polyline>
                     </svg>
-                    <fmt:message key="local.user.bar.create.request.room"/>
+                    <fmt:message key="local.userDto.bar.create.request.room"/>
                 </a>
             </li>
         </ul>

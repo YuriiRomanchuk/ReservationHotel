@@ -3,7 +3,7 @@ package com.reservation.model.dto;
 public class InvoiceDto {
 
     private int id;
-    private UserDto user;
+    private UserDto userDto;
     private RequestRoomDto requestRoomDto;
     private RoomDto roomDto;
     private String arrivalDate;
@@ -15,8 +15,8 @@ public class InvoiceDto {
         return id;
     }
 
-    public UserDto getUser() {
-        return user;
+    public UserDto getUserDto() {
+        return userDto;
     }
 
     public RequestRoomDto getRequestRoomDto() {
@@ -47,8 +47,8 @@ public class InvoiceDto {
         this.id = id;
     }
 
-    public void setUser(UserDto user) {
-        this.user = user;
+    public void setUserDto(UserDto userDto) {
+        this.userDto = userDto;
     }
 
     public void setRequestRoomDto(RequestRoomDto requestRoomDto) {

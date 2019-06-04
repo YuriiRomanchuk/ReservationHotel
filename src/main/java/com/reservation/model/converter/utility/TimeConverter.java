@@ -53,4 +53,10 @@ public class TimeConverter {
         Date currentDate = convertStringToDate(date, timeFormatFromSting);
         return changeDataToStringFormat(currentDate, timeFormatToString);
     }
+
+    public static int differenceBtwTwoDatesInDays(Date firstDate, Date secondDate) {
+        long milliseconds = secondDate.getTime() - firstDate.getTime();
+        return (int) (milliseconds / (24 * 60 * 60 * 1000));
+    }
+
 }
