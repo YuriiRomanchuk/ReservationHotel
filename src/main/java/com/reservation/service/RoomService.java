@@ -48,8 +48,8 @@ public class RoomService {
                                                       int placeNumber) throws ServiceException {
 
         try {
-            Date currentArrivalDate = TimeConverter.convertStringToDate(arrivalDate, "E MMM dd kk:mm:ss Z yyyy");
-            Date currentDepartureDate = TimeConverter.convertStringToDate(departureDate, "E MMM dd kk:mm:ss Z yyyy");
+            Date currentArrivalDate = TimeConverter.convertStringToDate(arrivalDate, "yyyy-MM-dd");
+            Date currentDepartureDate = TimeConverter.convertStringToDate(departureDate, "yyyy-MM-dd");
             List<Room> rooms = roomDao.receiveFreeRoomsByParameters(currentArrivalDate, currentDepartureDate, placeNumber, apartmentClass);
             return rooms.stream().map(roomDtoConverter::convertFromRoomEntity).collect(Collectors.toList());
         } catch (Exception e) {

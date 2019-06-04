@@ -16,7 +16,7 @@ public class RoomConverter implements Converter<RoomDto, Room> {
         Room room = new Room();
         room.setId(roomDto.getId());
         room.setRoomNumber(roomDto.getRoomNumber());
-        room.setApartmentСlass(ApartmentСlass.valueOf(roomDto.getApartmentСlass()));
+        room.setApartmentClass(ApartmentСlass.valueOf(roomDto.getApartmentClass()));
         room.setPlaceNumber(roomDto.getPlaceNumber());
         room.setPrice(roomDto.getPrice());
         LOGGER.debug("Room is converted from room dto!");

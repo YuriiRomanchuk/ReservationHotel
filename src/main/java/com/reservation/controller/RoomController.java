@@ -79,7 +79,7 @@ public class RoomController {
         } catch (ServiceException e) {
             view = new ViewModel("admin-personal-area");
             view.addParameter("Error", e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
-            LOGGER.debug("Session room is not shown! " + e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
+            LOGGER.debug("Room selection is not shown! " + e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
         }
         return new RedirectViewModel(view);
     }

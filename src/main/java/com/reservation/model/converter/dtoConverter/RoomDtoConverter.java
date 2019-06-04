@@ -16,7 +16,7 @@ public class RoomDtoConverter implements Converter<HttpServletRequest, RoomDto> 
     public RoomDto convert(HttpServletRequest request) {
         RoomDto roomDto = new RoomDto();
         roomDto.setPlaceNumber(Integer.valueOf(request.getParameter("placeNumber")));
-        roomDto.setApartmentСlass(request.getParameter("apartmentClass"));
+        roomDto.setApartmentClass(request.getParameter("apartmentClass"));
         roomDto.setRoomNumber(Integer.valueOf(request.getParameter("roomNumber")));
         roomDto.setPrice(Integer.valueOf(request.getParameter("price")));
         LOGGER.debug("Room dto is converted from request!");
@@ -28,7 +28,7 @@ public class RoomDtoConverter implements Converter<HttpServletRequest, RoomDto> 
         RoomDto roomDto = new RoomDto();
         roomDto.setId(room.getId());
         roomDto.setRoomNumber(room.getRoomNumber());
-        roomDto.setApartmentСlass(room.getApartmentСlass().toString());
+        roomDto.setApartmentClass(room.getApartmentClass().toString());
         roomDto.setPlaceNumber(room.getPlaceNumber());
         roomDto.setPrice(room.getPrice());
         LOGGER.debug("Room dto is converted by entity!");

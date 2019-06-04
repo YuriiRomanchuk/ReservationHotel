@@ -17,7 +17,7 @@ public class RoomResultSetConverter implements Converter<ResultSet, Room> {
     public Room convert(ResultSet resultSet) throws SQLException {
         Room room = new Room();
         room.setPlaceNumber(resultSet.getInt("place_number"));
-        room.setApartmentСlass(ApartmentСlass.valueOf(resultSet.getString("class")));
+        room.setApartmentClass(ApartmentСlass.valueOf(resultSet.getString("class")));
         room.setRoomNumber(resultSet.getInt("room_number"));
         room.setId(resultSet.getInt("room_id"));
         room.setPrice(resultSet.getInt("price"));

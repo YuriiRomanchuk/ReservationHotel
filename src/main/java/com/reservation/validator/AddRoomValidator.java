@@ -16,7 +16,7 @@ public class AddRoomValidator extends ModelValidator<RoomDto> {
         StringValidator nameApartmentClassValidator = new StringValidator(resourceBundle.getString("regexString"), "Wrong apartment class");
         validators.put(nameRoomNumberValidator, RoomDto::getRoomNumber);
         validators.put(namePlaceNumberValidator, RoomDto::getPlaceNumber);
-        validators.put(nameApartmentClassValidator, RoomDto::getApartmentСlass);
+        validators.put(nameApartmentClassValidator, RoomDto::getApartmentClass);
         validators.put(namePriceValidator, RoomDto::getPrice);
     }
 }

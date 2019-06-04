@@ -6,7 +6,7 @@ public class RoomDto {
     private int roomNumber;
     private int placeNumber;
     private int price;
-    private String apartmentСlass;
+    private String apartmentClass;
 
     public int getId() {
         return id;
@@ -20,8 +20,8 @@ public class RoomDto {
         return placeNumber;
     }
 
-    public String getApartmentСlass() {
-        return apartmentСlass;
+    public String getApartmentClass() {
+        return apartmentClass;
     }
 
     public void setId(int id) {
@@ -36,8 +36,8 @@ public class RoomDto {
         this.placeNumber = placeNumber;
     }
 
-    public void setApartmentСlass(String apartmentСlass) {
-        this.apartmentСlass = apartmentСlass;
+    public void setApartmentClass(String apartmentClass) {
+        this.apartmentClass = apartmentClass;
     }
 
     public void setPrice(int price) {

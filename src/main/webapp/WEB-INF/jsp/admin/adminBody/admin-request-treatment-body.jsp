@@ -37,6 +37,8 @@
     </div>
 </div>
 
+<form method="post" action="admin-request-treatment">
+
 <div class="w-100 d-none d-md-block"></div>
     <table class="table table-sm table-striped">
         <thead>
@@ -105,7 +107,7 @@
                     <div class="form-group field-middle_name row mr-2">
 
                         <c:if test="${requestRoom.getId() !=0}">
-                            <button onclick="form.action='show-session';" type="submit" name="search-room"
+                            <button onclick="form.action='search-room';" type="submit" name="search-room"
                                     value="${loop.index}"
                                     class="btn btn-primary ml-2 mr-1">
                                 <fmt:message key="local.request.treatment.button.search" bundle="${messages}"/>

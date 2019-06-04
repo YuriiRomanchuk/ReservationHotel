@@ -31,6 +31,14 @@ public class RequestRoomDtoConverter implements Converter<HttpServletRequest, Re
 
     public int receiveRequestRoomId(HttpServletRequest request) {
         String numberOfLine = request.getParameter("search-room");
-        return Integer.valueOf(request.getParameter("session_id_" + numberOfLine).trim());
+        return Integer.valueOf(request.getParameter("request_id_" + numberOfLine).trim());
     }
+
+    public int receiveRequestRoomIdFromURI(HttpServletRequest request) {
+        String requestURI = request.getRequestURI().replace(request.getContextPath() + "/main", "");
+        String[] splitURI = requestURI.split("/");
+        LOGGER.debug("Request room id from command line received from request");
+        return Integer.valueOf(splitURI[splitURI.length - 1]);
+    }
+
 }

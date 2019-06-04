@@ -55,7 +55,7 @@
                     <fmt:message
                             key="local.admin.bar.users"/>
                 </a>
-            </li>
+   <%--         </li>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                 <span>Film</span>
             </h6>
@@ -87,7 +87,7 @@
                             key="local.admin.bar.add.film"/>
                 </a>
             </li>
-
+--%>
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                 <span>     <fmt:message
                         key="local.admin.bar.room"/></span>
@@ -138,7 +138,7 @@
                 </a>
             </li>--%>
 
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <%--  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                 <span> <fmt:message key="local.admin.bar.room.selection"/></span>
             </h6>
 
@@ -155,7 +155,7 @@
                     </svg>
                     <fmt:message key="local.admin.bar.room.selection"/>
                 </a>
-            </li>
+            </li>--%>
         </ul>
     </div>
 </nav>

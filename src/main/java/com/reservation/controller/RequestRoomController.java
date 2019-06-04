@@ -72,4 +72,10 @@ public class RequestRoomController {
         view.addParameter("Error", error);
         return view;
     }
+
+    public View showRoomSelectionAdmin(int requestRoomId) {
+        return new RedirectViewModel(new ViewModel("admin-room-selection/" + requestRoomId));
+    }
+
+
 }

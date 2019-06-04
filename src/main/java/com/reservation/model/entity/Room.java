@@ -7,7 +7,7 @@ public class Room {
     private int id;
     private int roomNumber;
     private int placeNumber;
-    private ApartmentСlass apartmentСlass;
+    private ApartmentСlass apartmentClass;
     private int price;
 
     public int getId() {
@@ -18,8 +18,8 @@ public class Room {
         return placeNumber;
     }
 
-    public ApartmentСlass getApartmentСlass() {
-        return apartmentСlass;
+    public ApartmentСlass getApartmentClass() {
+        return apartmentClass;
     }
 
     public void setId(int id) {
@@ -30,8 +30,8 @@ public class Room {
         this.placeNumber = placeNumber;
     }
 
-    public void setApartmentСlass(ApartmentСlass apartmentСlass) {
-        this.apartmentСlass = apartmentСlass;
+    public void setApartmentClass(ApartmentСlass apartmentСlass) {
+        this.apartmentClass = apartmentСlass;
     }
 
     public int getRoomNumber() {
