@@ -3,6 +3,7 @@ package com.reservation.model.converter.dtoConverter;
 import com.reservation.model.converter.Converter;
 import com.reservation.model.converter.utility.TimeConverter;
 import com.reservation.model.dto.InvoiceDto;
+import com.reservation.model.enums.InvoiceStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -23,7 +24,7 @@ public class InvoiceDtoConverter implements Converter<HttpServletRequest, Invoic
     }
 
     @Override
-    public InvoiceDto convert(HttpServletRequest request) throws Exception {
+    public InvoiceDto convert(HttpServletRequest request) {
         String numberOfLine = request.getParameter("create-invoice");
 
         InvoiceDto invoiceDto = new InvoiceDto();
@@ -32,11 +33,11 @@ public class InvoiceDtoConverter implements Converter<HttpServletRequest, Invoic
         invoiceDto.setRequestRoomDto(requestRoomDtoConverter.convertByRequestId(Integer.valueOf(request.getParameter("request_room_id"))));
         invoiceDto.setArrivalDate(request.getParameter("request_room_arrival_date"));
         invoiceDto.setDepartureDate(request.getParameter("request_room_departure_date"));
+        invoiceDto.setInvoiceStatus(InvoiceStatus.NEW.toString());
 
         Date currentArrivalDate = TimeConverter.convertStringToDate(request.getParameter("request_room_arrival_date"), "dd.MM.yyyy");
-        Date currentDeparturelDate = TimeConverter.convertStringToDate(request.getParameter("request_room_departure_date"), "dd.MM.yyyy");
-        int countOfDay = TimeConverter.differenceBtwTwoDatesInDays(currentArrivalDate, currentDeparturelDate) - 1;
-
+        Date currentDepartureDate = TimeConverter.convertStringToDate(request.getParameter("request_room_departure_date"), "dd.MM.yyyy");
+        int countOfDay = TimeConverter.differenceBtwTwoDatesInDays(currentArrivalDate, currentDepartureDate) - 1;
         invoiceDto.setTotalPrice(Integer.valueOf(request.getParameter("price_" + numberOfLine).trim()) * 100 * countOfDay);
 
         return invoiceDto;
