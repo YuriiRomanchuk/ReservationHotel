@@ -1,6 +1,5 @@
 package com.reservation.model.entity;
 
-import com.reservation.model.dto.RoomDto;
 import com.reservation.model.enums.InvoiceStatus;
 
 import java.util.Date;
@@ -10,7 +9,7 @@ public class Invoice {
     private int id;
     private User user;
     private RequestRoom requestRoom;
-    private RoomDto roomDto;
+    private Room room;
     private Date arrivalDate;
     private Date departureDate;
     private int totalPrice;
@@ -28,8 +27,8 @@ public class Invoice {
         return requestRoom;
     }
 
-    public RoomDto getRoomDto() {
-        return roomDto;
+    public Room getRoom() {
+        return room;
     }
 
     public Date getArrivalDate() {
@@ -60,8 +59,8 @@ public class Invoice {
         this.requestRoom = requestRoom;
     }
 
-    public void setRoomDto(RoomDto roomDto) {
-        this.roomDto = roomDto;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     public void setArrivalDate(Date arrivalDate) {

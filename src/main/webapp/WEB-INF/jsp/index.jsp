@@ -105,9 +105,9 @@
                                         <td>
                                             <select class="custom-select mr-sm-2" id="session_room_${loop.index}"
                                                     name="session_room_${loop.index}">
-                                                <c:if test="${filmSessionDto.getRoomDto() !=null}">
+                                                <c:if test="${filmSessionDto.getRoom() !=null}">
                                                     <option selected="selected"
-                                                            value=${filmSessionDto.getRoomDto().getId()}>${filmSessionDto.getRoomDto().getName()}
+                                                            value=${filmSessionDto.getRoom().getId()}>${filmSessionDto.getRoom().getName()}
                                                     </option>
                                                 </c:if>
                                             </select

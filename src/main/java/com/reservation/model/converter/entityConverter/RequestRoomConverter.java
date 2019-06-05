@@ -11,8 +11,8 @@ import org.apache.logging.log4j.Logger;
 
 public class RequestRoomConverter implements Converter<RequestRoomDto, RequestRoom> {
 
-    private UserConverter userConverter;
     private static final Logger LOGGER = LogManager.getLogger(RoomConverter.class);
+    private UserConverter userConverter;
 
     public RequestRoomConverter(UserConverter userConverter) {
         this.userConverter = userConverter;

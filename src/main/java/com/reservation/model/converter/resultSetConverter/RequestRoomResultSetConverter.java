@@ -12,8 +12,8 @@ import java.sql.SQLException;
 
 public class RequestRoomResultSetConverter implements Converter<ResultSet, RequestRoom> {
 
-    private final UserResultSetConverter userResultSetConverter;
     private static final Logger LOGGER = LogManager.getLogger(RoomResultSetConverter.class);
+    private final UserResultSetConverter userResultSetConverter;
 
     public RequestRoomResultSetConverter(UserResultSetConverter userResultSetConverter) {
         this.userResultSetConverter = userResultSetConverter;
