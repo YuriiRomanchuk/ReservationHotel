@@ -2,11 +2,11 @@ package com.reservation.model.dao;
 
 import com.reservation.model.converter.resultSetConverter.InvoiceResultSetConverter;
 import com.reservation.model.entity.Invoice;
-import com.reservation.model.entity.RequestRoom;
 
+import java.sql.Timestamp;
 import java.util.List;
 
-public class InvoiceDao  implements GenericDao<Invoice>  {
+public class InvoiceDao implements GenericDao<Invoice> {
 
     private final DataSource dataSource;
     private final InvoiceResultSetConverter invoiceResultSetConverter;
@@ -20,16 +20,21 @@ public class InvoiceDao  implements GenericDao<Invoice>  {
     public void insert(Invoice entity) {
 
         QueryData[] queriesData = new QueryData[2];
-        queriesData[0] = (new QueryData("delete from tickets where session_id = ?", ps -> {
-            ps.setInt(1, filmSessionId);
+        queriesData[0] = (new QueryData("insert into invoice (user_id, request_room_id, room_id, arrival_date, departure_date, total_price, status) values(?,?,?,?,?,?,?)", ps -> {
+            ps.setInt(1, entity.getUser().getId());
+            ps.setInt(2, entity.getRequestRoom().getId());
+            ps.setInt(3, entity.getRoom().getId());
+            ps.setTimestamp(4, new Timestamp(entity.getArrivalDate().getTime()));
+            ps.setTimestamp(5, new Timestamp(entity.getArrivalDate().getTime()));
+            ps.setInt(6, entity.getTotalPrice());
+            ps.setString(7, entity.getInvoiceStatus().toString());
+
         }));
-        queriesData[1] = (new QueryData("delete from session where session.id = ?", ps -> {
-            ps.setInt(1, filmSessionId);
+        queriesData[1] = (new QueryData("UPDATE request_rooms SET status = 'APPROVE' WHERE id = ?", ps -> {
+            ps.setInt(1, entity.getRequestRoom().getId());
         }));
 
         dataSource.transactionUpdate(queriesData);
-
-
     }
 
     @Override

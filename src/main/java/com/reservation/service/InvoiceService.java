@@ -1,23 +1,30 @@
 package com.reservation.service;
 
+import com.reservation.exception.ServiceException;
 import com.reservation.model.converter.dtoConverter.InvoiceDtoConverter;
 import com.reservation.model.converter.entityConverter.InvoiceConverter;
 import com.reservation.model.dao.InvoiceDao;
 import com.reservation.model.dto.InvoiceDto;
+import com.reservation.model.entity.Invoice;
 
 public class InvoiceService {
 
     private final InvoiceDao invoiceDao;
-    private final InvoiceConverter roomConverter;
-    private final InvoiceDtoConverter roomDtoConverter;
+    private final InvoiceConverter invoiceConverter;
+    private final InvoiceDtoConverter invoiceDtoConverter;
 
-    public InvoiceService(InvoiceDao invoiceDao, InvoiceConverter roomConverter, InvoiceDtoConverter roomDtoConverter) {
+    public InvoiceService(InvoiceDao invoiceDao, InvoiceConverter invoiceConverter, InvoiceDtoConverter invoiceDtoConverter) {
         this.invoiceDao = invoiceDao;
-        this.roomConverter = roomConverter;
-        this.roomDtoConverter = roomDtoConverter;
+        this.invoiceConverter = invoiceConverter;
+        this.invoiceDtoConverter = invoiceDtoConverter;
     }
 
-    public void createInvoice(InvoiceDto invoiceDto) {
-
+    public void createInvoice(InvoiceDto invoiceDto) throws ServiceException {
+        try {
+            Invoice invoice = invoiceConverter.convert(invoiceDto);
+            invoiceDao.insert(invoice);
+        } catch (Exception e) {
+            throw new ServiceException("Create invoice failed", e);
+        }
     }
 }
