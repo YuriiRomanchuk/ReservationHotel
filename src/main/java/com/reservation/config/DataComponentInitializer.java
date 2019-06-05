@@ -1,12 +1,10 @@
 package com.reservation.config;
 
+import com.reservation.model.converter.resultSetConverter.InvoiceResultSetConverter;
 import com.reservation.model.converter.resultSetConverter.RequestRoomResultSetConverter;
 import com.reservation.model.converter.resultSetConverter.RoomResultSetConverter;
 import com.reservation.model.converter.resultSetConverter.UserResultSetConverter;
-import com.reservation.model.dao.DataSource;
-import com.reservation.model.dao.RequestRoomDao;
-import com.reservation.model.dao.RoomDao;
-import com.reservation.model.dao.UserDao;
+import com.reservation.model.dao.*;
 
 public class DataComponentInitializer {
 
@@ -16,10 +14,12 @@ public class DataComponentInitializer {
     private final UserDao userDao;
     private final RoomDao roomDao;
     private final RequestRoomDao requestRoomDao;
+    private final InvoiceDao invoiceDao;
 
     private final UserResultSetConverter userResultSetConverter;
     private final RoomResultSetConverter roomResultSetConverter;
     private final RequestRoomResultSetConverter requestRoomResultSetConverter;
+    private final InvoiceResultSetConverter invoiceResultSetConverter;
 
     private DataComponentInitializer() {
 
@@ -28,10 +28,12 @@ public class DataComponentInitializer {
         userResultSetConverter = new UserResultSetConverter();
         roomResultSetConverter = new RoomResultSetConverter();
         requestRoomResultSetConverter = new RequestRoomResultSetConverter(userResultSetConverter);
+        invoiceResultSetConverter = new InvoiceResultSetConverter();
 
         userDao = new UserDao(dataSource, userResultSetConverter);
         roomDao = new RoomDao(dataSource, roomResultSetConverter);
         requestRoomDao = new RequestRoomDao(dataSource, requestRoomResultSetConverter);
+        invoiceDao = new InvoiceDao(dataSource, invoiceResultSetConverter);
     }
 
     public static DataComponentInitializer getInstance() {
@@ -64,5 +66,9 @@ public class DataComponentInitializer {
 
     public RequestRoomDao getRequestRoomDao() {
         return requestRoomDao;
+    }
+
+    public InvoiceDao getInvoiceDao() {
+        return invoiceDao;
     }
 }
