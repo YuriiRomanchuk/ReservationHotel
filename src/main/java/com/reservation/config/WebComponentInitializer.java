@@ -144,6 +144,12 @@ public class WebComponentInitializer {
         return requestRoomDtoConverter;
     }
 
+    public InvoiceController getInvoiceController() {
+        return invoiceController;
+    }
 
+    public InvoiceDtoConverter getInvoiceDtoConverter() {
+        return invoiceDtoConverter;
+    }
 }
 

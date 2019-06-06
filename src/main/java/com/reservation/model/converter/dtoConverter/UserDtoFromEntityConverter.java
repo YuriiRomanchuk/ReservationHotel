@@ -13,6 +13,7 @@ public class UserDtoFromEntityConverter implements Converter<User, UserDto> {
     @Override
     public UserDto convert(User user) {
         UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
         userDto.setLogin(user.getLogin());
         userDto.setPassword(user.getPassword());
         userDto.setLastName(user.getLastName());

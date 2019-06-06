@@ -53,7 +53,7 @@ public class RoomService {
             List<Room> rooms = roomDao.receiveFreeRoomsByParameters(currentArrivalDate, currentDepartureDate, placeNumber, apartmentClass);
             return rooms.stream().map(roomDtoConverter::convertFromRoomEntity).collect(Collectors.toList());
         } catch (Exception e) {
-            throw new ServiceException("Create film session failed", e);
+            throw new ServiceException("Received free rooms failed", e);
         }
 
 

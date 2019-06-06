@@ -40,7 +40,7 @@ create table if not exists invoices
 (
   id               SERIAL      NOT NULL,
   room_id          int         NOT NULL,
-  request_rooms_id int         NOT NULL,
+  request_room_id int         NOT NULL,
   user_id          int         NOT NULL,
   arrival_date     timestamp   NOT NULL,
   departure_date   timestamp   NOT NULL,
@@ -51,7 +51,7 @@ create table if not exists invoices
     REFERENCES users (id),
   CONSTRAINT invoices_room_id_fkey FOREIGN KEY (room_id)
     REFERENCES rooms (id),
-  CONSTRAINT invoices_request_rooms_id_fkey FOREIGN KEY (request_rooms_id)
+  CONSTRAINT invoices_request_room_id_fkey FOREIGN KEY (request_room_id)
     REFERENCES request_rooms (id)
 );
 

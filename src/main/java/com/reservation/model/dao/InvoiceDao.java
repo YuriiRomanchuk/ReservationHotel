@@ -20,7 +20,7 @@ public class InvoiceDao implements GenericDao<Invoice> {
     public void insert(Invoice entity) {
 
         QueryData[] queriesData = new QueryData[2];
-        queriesData[0] = (new QueryData("insert into invoice (user_id, request_room_id, room_id, arrival_date, departure_date, total_price, status) values(?,?,?,?,?,?,?)", ps -> {
+        queriesData[0] = (new QueryData("insert into invoices (user_id, request_room_id, room_id, arrival_date, departure_date, total_price, status) values (?,?,?,?,?,?,?)", ps -> {
             ps.setInt(1, entity.getUser().getId());
             ps.setInt(2, entity.getRequestRoom().getId());
             ps.setInt(3, entity.getRoom().getId());

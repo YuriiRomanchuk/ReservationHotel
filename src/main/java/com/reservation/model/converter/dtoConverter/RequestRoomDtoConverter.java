@@ -48,4 +48,17 @@ public class RequestRoomDtoConverter implements Converter<HttpServletRequest, Re
         LOGGER.debug("User dto is converted from id!");
         return requestRoomDto;
     }
+
+    public RequestRoomDto convertByRoomSelection(HttpServletRequest request, String requestRoomStatus) {
+        RequestRoomDto requestRoomDto = new RequestRoomDto();
+        requestRoomDto.setId(Integer.valueOf(request.getParameter("request_room_id")));
+        requestRoomDto.setPlaceNumber(Integer.valueOf(request.getParameter("request_room_place_number")));
+        requestRoomDto.setApartmentClass(request.getParameter("request_room_apartment_class"));
+        requestRoomDto.setRequestRoomStatus(requestRoomStatus);
+        requestRoomDto.setUserDto(userDtoConverter.convertByUserId(Integer.valueOf(request.getParameter("request_room_user_id"))));
+        requestRoomDto.setArrivalDate(request.getParameter("request_room_arrival_date"));
+        requestRoomDto.setDepartureDate(request.getParameter("request_room_departure_date"));
+        LOGGER.debug("Room dto is converted from request!");
+        return requestRoomDto;
+    }
 }

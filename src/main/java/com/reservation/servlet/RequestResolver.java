@@ -35,14 +35,13 @@ public class RequestResolver {
         getControllers.put("/admin-request-treatment", r -> webComponentInitializer.getRequestRoomController().showRequestTreatment());
         getControllers.put("/admin-room-selection/{id}", r -> webComponentInitializer.getRoomController().showRoomSelectionPage(webComponentInitializer.getRequestRoomDtoConverter().receiveRequestRoomIdFromURI(r)));
 
-
         postControllers.put("/login", r -> webComponentInitializer.getUserController().loginUser(webComponentInitializer.getUserLoginDtoConverter().convert(r)));
         postControllers.put("/registration-form", r -> webComponentInitializer.getUserController().createUser(webComponentInitializer.getUserDtoConverter().convert(r)));
         postControllers.put("/change_language", r -> webComponentInitializer.getChangeLanguageController().changeLanguage());
         postControllers.put("/admin-add-room", r -> webComponentInitializer.getRoomController().createRoom(webComponentInitializer.getRoomDtoConverter().convert(r)));
         postControllers.put("/user-add-request-room", r -> webComponentInitializer.getRequestRoomController().createRequestRoom(webComponentInitializer.getRequestRoomDtoConverter().convert(r)));
         postControllers.put("/search-room", r -> webComponentInitializer.getRequestRoomController().showRoomSelectionAdmin(webComponentInitializer.getRequestRoomDtoConverter().receiveRequestRoomId(r)));
-
+        postControllers.put("/create-invoice", r -> webComponentInitializer.getInvoiceController().createInvoice(webComponentInitializer.getInvoiceDtoConverter().convert(r)));
     }
 
     public void resolveGetRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

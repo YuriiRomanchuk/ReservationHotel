@@ -29,11 +29,10 @@ public class InvoiceController {
         View view;
         try {
             invoiceService.createInvoice(invoiceDto);
-            view = receiveViewModel("WEB-INF/jsp/admin/admin-request-treatment.jsp", "Invoice created!");
+            view = receiveViewModel("admin-request-treatment", "Invoice created!");
             view.addParameter("requestRooms", requestRoomService.receiveNewRequestRooms());
         } catch (ServiceException e) {
             view = prepareInvoiceExceptionRedirectPage(invoiceDto, e);
-            return view;
         }
         return new RedirectViewModel(view);
     }
@@ -41,18 +40,16 @@ public class InvoiceController {
     private View prepareInvoiceExceptionRedirectPage(InvoiceDto invoiceDto, ServiceException exception) {
         View view;
         try {
-            view = receiveViewModel("admin-room-selection", exception.getCause() == null ? exception.getMessage() : exception.getCause().getMessage());
-            RequestRoomDto requestRoomDto = null;
-            requestRoomDto = requestRoomService.receiveRequestRoomById(invoiceDto.getRequestRoomDto().getId());
+            view = receiveViewModel("admin-room-selection/" + invoiceDto.getRequestRoomDto().getId(), exception.getCause() == null ? exception.getMessage() : exception.getCause().getMessage());
+            RequestRoomDto requestRoomDto = requestRoomService.receiveRequestRoomById(invoiceDto.getRequestRoomDto().getId());
             view.addParameter("requestRoomDto", requestRoomDto);
             view.addParameter("rooms", roomService.receiveFreeRoomsByParameters(requestRoomDto.getApartmentClass(), requestRoomDto.getArrivalDate(),
                     requestRoomDto.getDepartureDate(), requestRoomDto.getPlaceNumber()));
         } catch (ServiceException e) {
             return receiveViewModel("admin-personal-area", exception.getCause() == null ? exception.getMessage() : exception.getCause().getMessage());
         }
-        return view;
+        return new RedirectViewModel(view);
     }
-
 
     private View receiveViewModel(String path, String error) {
         View view;
@@ -61,5 +58,4 @@ public class InvoiceController {
         view.addParameter("Error", error);
         return view;
     }
-
 }
