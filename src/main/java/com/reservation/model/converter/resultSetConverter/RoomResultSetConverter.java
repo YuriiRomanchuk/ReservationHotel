@@ -16,11 +16,11 @@ public class RoomResultSetConverter implements Converter<ResultSet, Room> {
     @Override
     public Room convert(ResultSet resultSet) throws SQLException {
         Room room = new Room();
-        room.setPlaceNumber(resultSet.getInt("place_number"));
-        room.setApartmentClass(ApartmentСlass.valueOf(resultSet.getString("class")));
-        room.setRoomNumber(resultSet.getInt("room_number"));
+        room.setPlaceNumber(resultSet.getInt("rooms_place_number"));
+        room.setApartmentClass(ApartmentСlass.valueOf(resultSet.getString("rooms_class")));
+        room.setRoomNumber(resultSet.getInt("rooms_room_number"));
         room.setId(resultSet.getInt("room_id"));
-        room.setPrice(resultSet.getInt("price"));
+        room.setPrice(resultSet.getInt("rooms_price"));
         LOGGER.debug("Room result set is converted!");
         return room;
     }

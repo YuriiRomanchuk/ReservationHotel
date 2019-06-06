@@ -27,7 +27,6 @@ public class RoomController {
     }
 
     public View createRoom(RoomDto roomDto) {
-
         View view;
         try {
             view = validateAddRoom(roomDto);

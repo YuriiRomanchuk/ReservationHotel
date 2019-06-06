@@ -3,6 +3,7 @@ package com.reservation.controller;
 import com.reservation.exception.ServiceException;
 import com.reservation.model.dto.InvoiceDto;
 import com.reservation.model.dto.RequestRoomDto;
+import com.reservation.model.dto.UserDto;
 import com.reservation.service.InvoiceService;
 import com.reservation.service.RequestRoomService;
 import com.reservation.service.RoomService;
@@ -57,5 +58,17 @@ public class InvoiceController {
         LOGGER.debug(error);
         view.addParameter("Error", error);
         return view;
+    }
+
+    public View showUserInvoicePage(UserDto userDto) {
+        View view;
+        try {
+            view = new ViewModel("WEB-INF/jsp/user/user-invoice.jsp");
+            view.addParameter("invoices", invoiceService.receiveInvoicesById(userDto));
+            return view;
+        } catch (ServiceException e) {
+            view = receiveViewModel("user-personal-area", e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
+        }
+        return new RedirectViewModel(view);
     }
 }

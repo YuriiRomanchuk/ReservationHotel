@@ -9,8 +9,8 @@ import org.apache.logging.log4j.Logger;
 
 public class RequestRoomDtoFromEntityConverter implements Converter<RequestRoom, RequestRoomDto> {
 
-    private UserDtoFromEntityConverter userDtoFromEntityConverter;
     private static final Logger LOGGER = LogManager.getLogger(UserDtoConverter.class);
+    private UserDtoFromEntityConverter userDtoFromEntityConverter;
 
     public RequestRoomDtoFromEntityConverter(UserDtoFromEntityConverter userDtoFromEntityConverter) {
         this.userDtoFromEntityConverter = userDtoFromEntityConverter;

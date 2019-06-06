@@ -22,12 +22,12 @@ public class RequestRoomResultSetConverter implements Converter<ResultSet, Reque
     @Override
     public RequestRoom convert(ResultSet resultSet) throws SQLException {
         RequestRoom requestRoom = new RequestRoom();
-        requestRoom.setId(resultSet.getInt("request_id"));
-        requestRoom.setPlaceNumber(resultSet.getInt("place_number"));
-        requestRoom.setApartmentСlass(ApartmentСlass.valueOf(resultSet.getString("class")));
-        requestRoom.setRequestRoomStatus(RequestRoomStatus.valueOf(resultSet.getString("status")));
-        requestRoom.setArrivalDate(resultSet.getTimestamp("arrival_date"));
-        requestRoom.setDepartureDate(resultSet.getTimestamp("departure_date"));
+        requestRoom.setId(resultSet.getInt("request_room_id"));
+        requestRoom.setPlaceNumber(resultSet.getInt("request_rooms_place_number"));
+        requestRoom.setApartmentСlass(ApartmentСlass.valueOf(resultSet.getString("request_rooms_class")));
+        requestRoom.setRequestRoomStatus(RequestRoomStatus.valueOf(resultSet.getString("request_rooms_status")));
+        requestRoom.setArrivalDate(resultSet.getTimestamp("request_rooms_arrival_date"));
+        requestRoom.setDepartureDate(resultSet.getTimestamp("request_rooms_departure_date"));
         requestRoom.setUser(userResultSetConverter.convert(resultSet));
         LOGGER.debug("Room result set is converted!");
         return requestRoom;

@@ -36,8 +36,10 @@ public class RequestRoomDao implements GenericDao<RequestRoom> {
     @Override
     public RequestRoom findById(int id) {
 
-        return dataSource.receiveFirstRecord("SELECT temp.*, users.*\n" +
-                        "FROM\n" +
+        return dataSource.receiveFirstRecord("SELECT  temp.place_number as request_rooms_place_number, temp.class as request_rooms_class,\n" +
+                        "temp.user_id as user_id, temp.status as request_rooms_status,\n" +
+                        "temp.arrival_date as request_rooms_arrival_date, temp.departure_date as request_rooms_departure_date temp.id as request_room_id, users.*\n" +
+                        "  FROM\n" +
                         "(SELECT *, id as request_id from request_rooms where id = ?) temp LEFT JOIN users ON temp.user_id = users.id",
                 resultSet -> roomResultSetConverter.convert(resultSet),
                 preparedStatement ->
@@ -48,8 +50,10 @@ public class RequestRoomDao implements GenericDao<RequestRoom> {
 
     @Override
     public List<RequestRoom> findAll() {
-        return dataSource.receiveRecords("SELECT temp.*, users.*\n" +
-                        "FROM\n" +
+        return dataSource.receiveRecords("SELECT  temp.place_number as request_rooms_place_number, temp.class as request_rooms_class,\n" +
+                        "temp.user_id as user_id, temp.status as request_rooms_status,\n" +
+                        "temp.arrival_date as request_rooms_arrival_date, temp.departure_date as request_rooms_departure_date temp.id as request_room_id, users.*\n" +
+                        " FROM\n" +
                         "(SELECT *, id as request_id from request_rooms) temp LEFT JOIN users ON temp.user_id = users.id",
                 resultSet -> roomResultSetConverter.convert(resultSet),
                 preparedStatement -> {
@@ -67,8 +71,10 @@ public class RequestRoomDao implements GenericDao<RequestRoom> {
     }
 
     public List<RequestRoom> findByStatus(String status) {
-        return dataSource.receiveRecords("SELECT temp.*, users.*\n" +
-                        "FROM\n" +
+        return dataSource.receiveRecords("SELECT  temp.place_number as request_rooms_place_number, temp.class as request_rooms_class,\n" +
+                        " temp.user_id as user_id, temp.status as request_rooms_status,\n" +
+                        " temp.arrival_date as request_rooms_arrival_date, temp.departure_date as request_rooms_departure_date temp.id as request_room_id, users.*\n" +
+                        " FROM\n" +
                         "(SELECT *, id as request_id from request_rooms where status = ?) temp LEFT JOIN users ON temp.user_id = users.id",
                 resultSet -> roomResultSetConverter.convert(resultSet),
                 preparedStatement ->

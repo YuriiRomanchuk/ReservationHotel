@@ -60,7 +60,8 @@ public class RoomDao implements GenericDao<Room> {
         return dataSource.receiveRecords(
                         "" +
                                 "\n" +
-                                "      SELECT rooms.*, invoice_id, rooms,id as room_id\n" +
+                                "      SELECT rooms.*, invoice_id, rooms.id as rooms_room_id, rooms.class as rooms_class\n" +
+                                "      rooms.place_number as rooms_place_number, rooms.price as rooms_price, rooms.room_number as rooms_room_number\n" +
                                 "      FROM\n" +
                                 "        (SELECT MAX(invoices.id) as invoice_id, invoices.room_id FROM\n" +
                                 "          (SELECT * FROM rooms  WHERE class = ? and place_number >= ?) temp LEFT JOIN invoices on temp.id = invoices.room_id\n" +
