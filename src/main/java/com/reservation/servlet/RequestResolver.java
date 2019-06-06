@@ -43,6 +43,7 @@ public class RequestResolver {
         postControllers.put("/user-add-request-room", r -> webComponentInitializer.getRequestRoomController().createRequestRoom(webComponentInitializer.getRequestRoomDtoConverter().convert(r)));
         postControllers.put("/search-room", r -> webComponentInitializer.getRequestRoomController().showRoomSelectionAdmin(webComponentInitializer.getRequestRoomDtoConverter().receiveRequestRoomId(r)));
         postControllers.put("/create-invoice", r -> webComponentInitializer.getInvoiceController().createInvoice(webComponentInitializer.getInvoiceDtoConverter().convert(r)));
+        postControllers.put("/pay-invoice", r -> webComponentInitializer.getInvoiceController().payInvoice(webComponentInitializer.getInvoiceDtoConverter().receiveInvoiceId(r)));
     }
 
     public void resolveGetRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

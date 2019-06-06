@@ -40,4 +40,12 @@ public class InvoiceService {
             throw new ServiceException("Receive invoice failed", e);
         }
     }
+
+    public void updateInvoiceStatus(int invoiceId, String status) throws ServiceException {
+        try {
+            invoiceDao.updateStatus(invoiceId, status);
+        } catch (Exception e) {
+            throw new ServiceException("Update invoice failed", e);
+        }
+    }
 }

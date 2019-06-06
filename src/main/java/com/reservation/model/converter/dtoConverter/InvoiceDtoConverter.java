@@ -43,4 +43,9 @@ public class InvoiceDtoConverter implements Converter<HttpServletRequest, Invoic
         LOGGER.debug("Invoice dto is converted!");
         return invoiceDto;
     }
+
+    public int receiveInvoiceId(HttpServletRequest request) {
+        String numberOfLine = request.getParameter("pay-invoice");
+        return Integer.valueOf(request.getParameter("invoice_id_" + numberOfLine).trim());
+    }
 }

@@ -77,4 +77,16 @@ public class InvoiceDao implements GenericDao<Invoice> {
                     preparedStatement.setInt(1, id);
                 });
     }
+
+    public void updateStatus(int id, String status) {
+
+        QueryData[] queriesData = new QueryData[1];
+
+        queriesData[0] = (new QueryData("UPDATE invoices SET status = ? WHERE id = ?", ps -> {
+            ps.setString(1, status);
+            ps.setInt(2, id);
+        }));
+
+        dataSource.transactionUpdate(queriesData);
+    }
 }

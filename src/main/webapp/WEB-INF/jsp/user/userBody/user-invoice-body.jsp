@@ -55,8 +55,8 @@
         <c:forEach var="invoice" items="${invoices}" varStatus="loop">
             <tr>
                 <td>
-                    <input type="text" class="form-control" id="room_id_${loop.index}"
-                           name="room_id_${loop.index}" size="1"
+                    <input type="text" class="form-control" id="invoice_id_${loop.index}"
+                           name="invoice_id_${loop.index}" size="1"
                            readonly
                            value=" ${invoice.getId()}">
                 </td>
