@@ -24,18 +24,6 @@ public class RoomDtoConverter implements Converter<HttpServletRequest, RoomDto> 
     }
 
     //TODO: refactoring to another class
-    public RoomDto convertFromRoomEntity(Room room) {
-        RoomDto roomDto = new RoomDto();
-        roomDto.setId(room.getId());
-        roomDto.setRoomNumber(room.getRoomNumber());
-        roomDto.setApartmentClass(room.getApartmentClass().toString());
-        roomDto.setPlaceNumber(room.getPlaceNumber());
-        roomDto.setPrice(room.getPrice());
-        LOGGER.debug("Room dto is converted by entity!");
-        return roomDto;
-    }
-
-    //TODO: refactoring to another class
     public RoomDto convertByRoomId(String room_id) {
         RoomDto roomDto = new RoomDto();
         roomDto.setId(room_id == null ? 0 : Integer.valueOf(room_id));

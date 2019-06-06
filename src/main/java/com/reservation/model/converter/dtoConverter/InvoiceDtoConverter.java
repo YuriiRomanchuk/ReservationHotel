@@ -3,7 +3,6 @@ package com.reservation.model.converter.dtoConverter;
 import com.reservation.model.converter.Converter;
 import com.reservation.model.converter.utility.TimeConverter;
 import com.reservation.model.dto.InvoiceDto;
-import com.reservation.model.enums.ApartmentСlass;
 import com.reservation.model.enums.InvoiceStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -40,7 +39,7 @@ public class InvoiceDtoConverter implements Converter<HttpServletRequest, Invoic
         Date currentArrivalDate = TimeConverter.convertStringToDate(request.getParameter("request_room_arrival_date"), "yyyy-MM-dd");
         Date currentDepartureDate = TimeConverter.convertStringToDate(request.getParameter("request_room_departure_date"), "yyyy-MM-dd");
         int countOfDay = TimeConverter.differenceBtwTwoDatesInDays(currentArrivalDate, currentDepartureDate) - 1;
-        invoiceDto.setTotalPrice(Integer.valueOf(request.getParameter("price_" + numberOfLine).trim().replace(".","")) * countOfDay);
+        invoiceDto.setTotalPrice(Integer.valueOf(request.getParameter("price_" + numberOfLine).trim().replace(".", "")) * countOfDay);
         LOGGER.debug("Invoice dto is converted!");
         return invoiceDto;
     }

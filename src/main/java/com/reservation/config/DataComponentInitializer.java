@@ -28,7 +28,7 @@ public class DataComponentInitializer {
         userResultSetConverter = new UserResultSetConverter();
         roomResultSetConverter = new RoomResultSetConverter();
         requestRoomResultSetConverter = new RequestRoomResultSetConverter(userResultSetConverter);
-        invoiceResultSetConverter = new InvoiceResultSetConverter();
+        invoiceResultSetConverter = new InvoiceResultSetConverter(userResultSetConverter, roomResultSetConverter, requestRoomResultSetConverter);
 
         userDao = new UserDao(dataSource, userResultSetConverter);
         roomDao = new RoomDao(dataSource, roomResultSetConverter);

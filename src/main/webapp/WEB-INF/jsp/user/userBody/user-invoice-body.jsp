@@ -44,7 +44,7 @@
         <thead>
         <tr>
             <th><fmt:message key="local.user.invoice.table.id" bundle="${messages}"/></th>
-            <th><fmt:message key="local.auser.invoice.table.place_number" bundle="${messages}"/></th>
+            <th><fmt:message key="local.user.invoice.table.place_number" bundle="${messages}"/></th>
             <th><fmt:message key="local.user.invoice.table.class" bundle="${messages}"/></th>
             <th><fmt:message key="local.user.invoice.table.room_number" bundle="${messages}"/></th>
             <th><fmt:message key="local.user.invoice.table.arrival_date" bundle="${messages}"/></th>
@@ -64,13 +64,19 @@
                     <input type="text" class="form-control" id="place_number_${loop.index}"
                            name="place_number_${loop.index}" size="1"
                            readonly
-                           value=" ${invoice.getPlaceNumber()}">
+                           value=" ${invoice.getRoomDto().getPlaceNumber()}">
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="apartment_class_${loop.index}"
+                           name="apartment_class_${loop.index}"
+                           readonly
+                           value="${invoice.getRoomDto().getApartmentClass()}">
                 </td>
                 <td>
                     <input type="text" class="form-control" id="room_number_${loop.index}"
                            name="room_number_${loop.index}"
                            readonly
-                           value="${invoice.getRoomNumber()}">
+                           value="${invoice.getRoomDto().getRoomNumber()}">
                 </td>
                 <td>
                     <input type="date" class="form-control" id="arrival_date_${loop.index}"
@@ -85,20 +91,13 @@
                            readonly
                            value="${invoice.getDepartureDate()}">
                 </td>
-                <td>
-                    <input type="text" class="form-control" id="apartment_class_${loop.index}"
-                           name="apartment_class_${loop.index}"
-                           readonly
-                           value="${invoice.getApartmentClass()}">
-                </td>
 
                 <td>
                     <input type="text" class="form-control" id="price_${loop.index}"
                            name="price_${loop.index}"
                            readonly
-                           value="${invoice.getPrice()/100}">
+                           value="${invoice.getTotalPrice()/100}">
                 </td>
-
                 <td>
                     <div class="form-group field-middle_name row mr-2">
 

@@ -19,7 +19,7 @@
     <jsp:body>
         <div class="row h-100">
             <!-- left sidebar -->
-            <jsp:include page="/WEB-INF/jsp/template/userDto-bar.jsp"/>
+            <jsp:include page="/WEB-INF/jsp/template/user-bar.jsp"/>
 
             <!-- center content -->
             <div class="col fluid bg-faded py-3">

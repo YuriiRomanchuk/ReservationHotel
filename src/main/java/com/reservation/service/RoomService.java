@@ -2,6 +2,7 @@ package com.reservation.service;
 
 import com.reservation.exception.ServiceException;
 import com.reservation.model.converter.dtoConverter.RoomDtoConverter;
+import com.reservation.model.converter.dtoConverter.RoomDtoFromEntityConverter;
 import com.reservation.model.converter.entityConverter.RoomConverter;
 import com.reservation.model.converter.utility.TimeConverter;
 import com.reservation.model.dao.RoomDao;
@@ -17,11 +18,13 @@ public class RoomService {
     private final RoomDao roomDao;
     private final RoomConverter roomConverter;
     private final RoomDtoConverter roomDtoConverter;
+    private final RoomDtoFromEntityConverter roomDtoFromEntityConverter;
 
-    public RoomService(RoomDao roomDao, RoomConverter roomConverter, RoomDtoConverter roomDtoConverter) {
+    public RoomService(RoomDao roomDao, RoomConverter roomConverter, RoomDtoConverter roomDtoConverter, RoomDtoFromEntityConverter roomDtoFromEntityConverter) {
         this.roomDao = roomDao;
         this.roomConverter = roomConverter;
         this.roomDtoConverter = roomDtoConverter;
+        this.roomDtoFromEntityConverter = roomDtoFromEntityConverter;
     }
 
     public void createRoom(RoomDto roomDto) throws ServiceException {
@@ -35,7 +38,7 @@ public class RoomService {
 
     public List<RoomDto> receiveAllRoomsDto() throws ServiceException {
         try {
-            return roomDao.findAll().stream().map(roomDtoConverter::convertFromRoomEntity).collect(Collectors.toList());
+            return roomDao.findAll().stream().map(roomDtoFromEntityConverter::convert).collect(Collectors.toList());
         } catch (Exception e) {
             throw new ServiceException("Create room dto failed", e);
         }
@@ -51,7 +54,7 @@ public class RoomService {
             Date currentArrivalDate = TimeConverter.convertStringToDate(arrivalDate, "yyyy-MM-dd");
             Date currentDepartureDate = TimeConverter.convertStringToDate(departureDate, "yyyy-MM-dd");
             List<Room> rooms = roomDao.receiveFreeRoomsByParameters(currentArrivalDate, currentDepartureDate, placeNumber, apartmentClass);
-            return rooms.stream().map(roomDtoConverter::convertFromRoomEntity).collect(Collectors.toList());
+            return rooms.stream().map(roomDtoFromEntityConverter::convert).collect(Collectors.toList());
         } catch (Exception e) {
             throw new ServiceException("Received free rooms failed", e);
         }

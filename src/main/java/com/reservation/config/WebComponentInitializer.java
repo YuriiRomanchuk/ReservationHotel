@@ -40,6 +40,8 @@ public class WebComponentInitializer {
     private final UserDtoFromEntityConverter userDtoFromEntityConverter;
     private final RequestRoomDtoFromEntityConverter requestRoomDtoFromEntityConverter;
     private final InvoiceDtoConverter invoiceDtoConverter;
+    private final RoomDtoFromEntityConverter roomDtoFromEntityConverter;
+    private final InvoicesDtoFromEntityConverter invoicesDtoFromEntityConverter;
 
     private final UserRegistrationDataValidator userRegistrationValidator;
     private final UserLoginValidator userLoginValidator;
@@ -67,6 +69,8 @@ public class WebComponentInitializer {
         userDtoFromEntityConverter = new UserDtoFromEntityConverter();
         requestRoomDtoFromEntityConverter = new RequestRoomDtoFromEntityConverter(userDtoFromEntityConverter);
         invoiceDtoConverter = new InvoiceDtoConverter(userDtoConverter, roomDtoConverter, requestRoomDtoConverter);
+        roomDtoFromEntityConverter = new RoomDtoFromEntityConverter();
+        invoicesDtoFromEntityConverter = new InvoicesDtoFromEntityConverter(userDtoFromEntityConverter, requestRoomDtoFromEntityConverter, roomDtoFromEntityConverter);
 
         userConverter = new UserConverter();
         roomConverter = new RoomConverter();
@@ -74,9 +78,9 @@ public class WebComponentInitializer {
         invoiceConverter = new InvoiceConverter(userConverter, roomConverter, requestRoomConverter);
 
         userService = new UserService(dataComponentInitializer.getUserDao(), userConverter);
-        roomService = new RoomService(dataComponentInitializer.getRoomDao(), roomConverter, roomDtoConverter);
+        roomService = new RoomService(dataComponentInitializer.getRoomDao(), roomConverter, roomDtoConverter, roomDtoFromEntityConverter);
         requestRoomService = new RequestRoomService(dataComponentInitializer.getRequestRoomDao(), requestRoomConverter, requestRoomDtoFromEntityConverter);
-        invoiceService = new InvoiceService(dataComponentInitializer.getInvoiceDao(), invoiceConverter, invoiceDtoConverter);
+        invoiceService = new InvoiceService(dataComponentInitializer.getInvoiceDao(), invoiceConverter, invoicesDtoFromEntityConverter);
 
         changeLanguageController = new ChangeLanguageController();
         welcomeController = new WelcomeController();
