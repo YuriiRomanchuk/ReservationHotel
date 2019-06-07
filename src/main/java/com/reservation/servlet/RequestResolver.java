@@ -44,6 +44,7 @@ public class RequestResolver {
         postControllers.put("/search-room", r -> webComponentInitializer.getRequestRoomController().showRoomSelectionAdmin(webComponentInitializer.getRequestRoomDtoConverter().receiveRequestRoomIdInTable(r)));
         postControllers.put("/create-invoice", r -> webComponentInitializer.getInvoiceController().createInvoice(webComponentInitializer.getInvoiceDtoConverter().convert(r)));
         postControllers.put("/pay-invoice", r -> webComponentInitializer.getInvoiceController().payInvoice(webComponentInitializer.getInvoiceDtoConverter().receiveInvoiceId(r)));
+        postControllers.put("/reject-invoice", r -> webComponentInitializer.getInvoiceController().rejectInvoice(webComponentInitializer.getInvoiceDtoConverter().receiveInvoiceId(r)));
         postControllers.put("/admin-room-selection-reject", r -> webComponentInitializer.getRequestRoomController().regectRequestRoom(webComponentInitializer.getRequestRoomDtoConverter().receiveRequestRoomId(r)));
     }
 

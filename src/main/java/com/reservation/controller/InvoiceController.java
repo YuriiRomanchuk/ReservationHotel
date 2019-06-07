@@ -74,11 +74,19 @@ public class InvoiceController {
     }
 
     public View payInvoice(int invoiceId) {
+       return updateInvoiceStatus(invoiceId, InvoiceStatus.PAID.toString());
+    }
+
+    public View rejectInvoice(int invoiceId) {
+       return updateInvoiceStatus(invoiceId, InvoiceStatus.REJECT.toString());
+    }
+
+    private View updateInvoiceStatus(int invoiceId, String status) {
         View view;
         try {
-            invoiceService.updateInvoiceStatus(invoiceId, InvoiceStatus.PAID.toString());
+            invoiceService.updateInvoiceStatus(invoiceId, status);
             view = new ViewModel("user-invoices");
-           /* return view;*/
+            /* return view;*/
         } catch (ServiceException e) {
             view = receiveViewModel("user-invoices", e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
         }

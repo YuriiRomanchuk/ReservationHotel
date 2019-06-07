@@ -46,6 +46,9 @@ public class InvoiceDtoConverter implements Converter<HttpServletRequest, Invoic
 
     public int receiveInvoiceId(HttpServletRequest request) {
         String numberOfLine = request.getParameter("pay-invoice");
+        if (numberOfLine == null) {
+            numberOfLine = request.getParameter("reject-invoice");
+        }
         return Integer.valueOf(request.getParameter("invoice_id_" + numberOfLine).trim());
     }
 }

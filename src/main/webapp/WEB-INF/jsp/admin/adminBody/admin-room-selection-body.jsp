@@ -172,13 +172,12 @@
                 <div class="form-group field-middle_name row mr-2">
 
                     <c:if test="${room.getId() !=0}">
-                        <button onclick="form.action='reject-request';" type="submit" name="reject-request"
+                        <button onclick="form.action='create-invoice';" type="submit" name="create-invoice"
                                 value="${loop.index}"
                                 class="btn btn-primary ml-2 mr-1">
                             <fmt:message key="local.admin.room.selection.button.create.invoice" bundle="${messages}"/>
                         </button>
                     </c:if>
-
                 </div>
             </td>
         </tr>

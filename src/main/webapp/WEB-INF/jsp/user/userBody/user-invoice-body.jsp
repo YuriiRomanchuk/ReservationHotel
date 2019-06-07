@@ -107,6 +107,12 @@
                                     class="btn btn-primary ml-2 mr-1">
                                 <fmt:message key="local.user.invoice.button.create.pay" bundle="${messages}"/>
                             </button>
+
+                            <button onclick="form.action='reject-invoice';" type="submit" name="reject-invoice"
+                                    value="${loop.index}"
+                                    class="btn btn-primary ml-2 mr-1">
+                                <fmt:message key="local.user.invoice.button.reject.invoice" bundle="${messages}"/>
+                            </button>
                         </c:if>
 
                     </div>
