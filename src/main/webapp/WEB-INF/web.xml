@@ -34,31 +34,27 @@
         <filter-class>com.reservation.controller.filter.UserPageFilter</filter-class>
         <init-param>
             <param-name>forbiddenPagesUser</param-name>
-            <param-value><!--admin-personal-area,login,registration-form,admin-add-film,admin-add-room,
-                admin-add-room-place,admin-personal-area,admin-session,admin-session-room,admin-show-all-films,
-                unknown-session-room,index-->
+            <param-value>admin-personal-area,login,registration-form,admin-add-room,index,
+                admin-request-treatment,admin-room-selection
             </param-value>
         </init-param>
         <init-param>
             <param-name>forbiddenPagesUnknown</param-name>
-            <param-value><!--admin-personal-area,userDto-personal-area,admin-add-film,admin-add-room,admin-add-room-place,
-                admin-personal-area, admin-session, admin-session-room, admin-show-all-films, userDto-session-room,
-                userDto-session, userDto-personal-area, userDto-buy-history-->
+            <param-value>admin-personal-area,registration-form,admin-add-room,
+                admin-request-treatment,admin-room-selection,user-personal-area,user-invoices,user-add-request-room
             </param-value>
         </init-param>
         <init-param>
             <param-name>forbiddenPagesAdmin</param-name>
             <param-value>
-              <!--  userDto-personal-area,login,registration-form,userDto-session-room,userDto-session,userDto-personal-area,userDto-buy-history,
-                unknown-session-room,index-->
+                user-personal-area,login,registration-form,index,user-personal-area,user-invoices,user-add-request-room
             </param-value>
         </init-param>
         <init-param>
             <param-name>allPages</param-name>
             <param-value>
-      <!--          index,login,registration-form,admin-personal-area,userDto-personal-area,admin-add-film,admin-add-room,admin-add-room-place,
-                admin-personal-area,admin-session,admin-session-room,admin-show-all-films,userDto-session-room,
-                userDto-session,userDto-personal-area,userDto-buy-history,unknown-session-room-->
+                index,admin-personal-area,login,registration-form,admin-add-room,
+                admin-request-treatment,admin-room-selection,user-personal-area,user-invoices,user-add-request-room
             </param-value>
         </init-param>
     </filter>
@@ -91,9 +87,9 @@
         </listener-class>
     </listener>
 
- <!--     <welcome-file-list>
-          <welcome-file>/WEB-INF/jsp/index.jsp</welcome-file>
-      </welcome-file-list>-->
+    <!--     <welcome-file-list>
+             <welcome-file>/WEB-INF/jsp/index.jsp</welcome-file>
+         </welcome-file-list>-->
 
     <error-page>
         <exception-type>java.lang.Exception</exception-type>
