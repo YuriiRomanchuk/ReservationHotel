@@ -13,8 +13,6 @@ import com.reservation.view.ViewModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Date;
-
 public class UserController {
 
 
@@ -41,9 +39,9 @@ public class UserController {
 
     public View showAdminPersonalArea() {
         View view;
-    /*    try {*/
-            view = new ViewModel("WEB-INF/jsp/admin/admin-personal-area.jsp");
-            /*      view.addParameter("filmSaleDto", filmSessionService.receiveFilmSalesByDate(currentDate));*/
+        /*    try {*/
+        view = new ViewModel("WEB-INF/jsp/admin/admin-personal-area.jsp");
+        /*      view.addParameter("filmSaleDto", filmSessionService.receiveFilmSalesByDate(currentDate));*/
 /*            LOGGER.debug("show admin personal area");
         } catch (ServiceException e) {
             view = receiveViewModel("index", e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
@@ -54,10 +52,10 @@ public class UserController {
 
     public View showUserPersonalArea(UserDto userDto) {
         View view;
-/*        try {*/
-            view = new ViewModel("WEB-INF/jsp/user/user-personal-area.jsp");
-            /*            view.addParameter("userTicketsHistory", showUserHistory(userDto.getId()));*/
-            return view;
+        /*        try {*/
+        view = new ViewModel("WEB-INF/jsp/user/user-personal-area.jsp");
+        /*            view.addParameter("userTicketsHistory", showUserHistory(userDto.getId()));*/
+        return view;
 /*        } catch (ServiceException e) {
             view = receiveViewModel("index", e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
         }

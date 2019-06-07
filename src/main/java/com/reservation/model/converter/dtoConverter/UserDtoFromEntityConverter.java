@@ -25,5 +25,4 @@ public class UserDtoFromEntityConverter implements Converter<User, UserDto> {
         LOGGER.debug("User dto is converted from entity!");
         return userDto;
     }
-
 }

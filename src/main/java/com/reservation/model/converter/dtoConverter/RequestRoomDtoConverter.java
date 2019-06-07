@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 
 public class RequestRoomDtoConverter implements Converter<HttpServletRequest, RequestRoomDto> {
 
-    private UserDtoConverter userDtoConverter;
     private static final Logger LOGGER = LogManager.getLogger(RoomDtoConverter.class);
+    private UserDtoConverter userDtoConverter;
 
     public RequestRoomDtoConverter(UserDtoConverter userDtoConverter) {
         this.userDtoConverter = userDtoConverter;

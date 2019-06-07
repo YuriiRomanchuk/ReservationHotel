@@ -1,7 +1,5 @@
 package com.reservation.model.dto;
 
-import java.util.Date;
-
 public class RequestRoomDto {
 
     private int id;

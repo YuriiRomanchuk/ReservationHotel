@@ -5,6 +5,7 @@ import com.reservation.model.enums.Role;
 import java.util.Objects;
 
 public class UserAuthorization {
+
     private String email;
     private Role role;
 

@@ -14,7 +14,6 @@ public class User {
     private String phone;
     private Role role;
 
-
     public int getId() {
         return id;
     }

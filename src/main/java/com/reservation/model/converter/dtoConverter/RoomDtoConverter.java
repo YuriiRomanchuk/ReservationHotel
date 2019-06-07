@@ -2,7 +2,6 @@ package com.reservation.model.converter.dtoConverter;
 
 import com.reservation.model.converter.Converter;
 import com.reservation.model.dto.RoomDto;
-import com.reservation.model.entity.Room;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,5 +29,4 @@ public class RoomDtoConverter implements Converter<HttpServletRequest, RoomDto> 
         LOGGER.debug("Room dto is converted by room id!");
         return roomDto;
     }
-
 }

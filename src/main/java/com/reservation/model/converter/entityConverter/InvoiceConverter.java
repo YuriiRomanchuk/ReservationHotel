@@ -15,7 +15,9 @@ public class InvoiceConverter implements Converter<InvoiceDto, Invoice> {
     private RoomConverter roomConverter;
     private RequestRoomConverter requestRoomConverter;
 
-    public InvoiceConverter(UserConverter userConverter, RoomConverter roomConverter, RequestRoomConverter requestRoomConverter) {
+    public InvoiceConverter(UserConverter userConverter,
+                            RoomConverter roomConverter,
+                            RequestRoomConverter requestRoomConverter) {
         this.userConverter = userConverter;
         this.roomConverter = roomConverter;
         this.requestRoomConverter = requestRoomConverter;

@@ -78,7 +78,7 @@ public class RequestRoomController {
         return new RedirectViewModel(new ViewModel("admin-room-selection/" + requestRoomId));
     }
 
-    public View regectRequestRoom(int requestRoomId) {
+    public View rejectRequestRoom(int requestRoomId) {
         View view;
         try {
             requestRoomService.changeRequestRoomStatus(requestRoomId, RequestRoomStatus.REJECT.toString());
