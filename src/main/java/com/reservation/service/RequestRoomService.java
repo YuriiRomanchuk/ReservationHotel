@@ -7,6 +7,7 @@ import com.reservation.model.dao.RequestRoomDao;
 import com.reservation.model.dto.RequestRoomDto;
 import com.reservation.model.entity.RequestRoom;
 import com.reservation.model.enums.RequestRoomStatus;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -55,6 +56,15 @@ public class RequestRoomService {
             throw new ServiceException("Request room change status failed", e);
         }
 
+    }
+
+    public List<RequestRoomDto> receiveRequestsRoomByUserId(int userId) throws ServiceException {
+        try {
+            List<RequestRoom> roomPlaces = requestRoomDao.findByUserId(userId);
+            return roomPlaces.stream().map(requestRoomDtoFromEntityConverter::convert).collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new ServiceException("Request room receive failed", e);
+        }
     }
 }
 

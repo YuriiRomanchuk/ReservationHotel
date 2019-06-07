@@ -4,6 +4,7 @@ import com.reservation.exception.ServiceException;
 import com.reservation.model.dto.UserDto;
 import com.reservation.model.entity.User;
 import com.reservation.model.enums.Role;
+import com.reservation.service.RequestRoomService;
 import com.reservation.service.UserService;
 import com.reservation.validator.UserLoginValidator;
 import com.reservation.validator.UserRegistrationDataValidator;
@@ -18,13 +19,16 @@ public class UserController {
 
     private static final Logger LOGGER = LogManager.getLogger(UserController.class);
     private final UserService userService;
+    private final RequestRoomService requestRoomService;
     private final UserRegistrationDataValidator userRegistrationDataValidator;
     private final UserLoginValidator userLoginValidator;
 
     public UserController(UserService userService,
+                          RequestRoomService requestRoomService,
                           UserRegistrationDataValidator userRegistrationDataValidator,
                           UserLoginValidator userLoginValidator) {
         this.userService = userService;
+        this.requestRoomService = requestRoomService;
         this.userRegistrationDataValidator = userRegistrationDataValidator;
         this.userLoginValidator = userLoginValidator;
     }
@@ -52,14 +56,14 @@ public class UserController {
 
     public View showUserPersonalArea(UserDto userDto) {
         View view;
-        /*        try {*/
-        view = new ViewModel("WEB-INF/jsp/user/user-personal-area.jsp");
-        /*            view.addParameter("userTicketsHistory", showUserHistory(userDto.getId()));*/
-        return view;
-/*        } catch (ServiceException e) {
+        try {
+            view = new ViewModel("WEB-INF/jsp/user/user-personal-area.jsp");
+            view.addParameter("requestsRoom", requestRoomService.receiveRequestsRoomByUserId(userDto.getId()));
+            return view;
+        } catch (ServiceException e) {
             view = receiveViewModel("index", e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
         }
-        return new RedirectViewModel(view);*/
+        return new RedirectViewModel(view);
     }
 
     public View logout() {

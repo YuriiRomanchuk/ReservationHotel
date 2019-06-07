@@ -25,7 +25,7 @@
             <div class="col fluid bg-faded py-3">
                 <div class="row w-100">
                     <div class="col">
-                        <%--<jsp:include page="/WEB-INF/jsp/userDto/userBody/user-buy-history-body.jsp"/>--%>
+                        <jsp:include page="/WEB-INF/jsp/user/userBody/user-request-room-history-body.jsp"/>
                     </div>
                 </div>
             </div>

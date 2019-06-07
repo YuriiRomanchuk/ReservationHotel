@@ -84,7 +84,7 @@ public class WebComponentInitializer {
 
         changeLanguageController = new ChangeLanguageController();
         welcomeController = new WelcomeController();
-        userController = new UserController(userService, userRegistrationValidator, userLoginValidator);
+        userController = new UserController(userService, requestRoomService, userRegistrationValidator, userLoginValidator);
         roomController = new RoomController(roomService, requestRoomService, addRoomValidator);
         requestRoomController = new RequestRoomController(requestRoomService, addRequestRoomValidator);
         invoiceController = new InvoiceController(invoiceService, requestRoomService, roomService);

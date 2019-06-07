@@ -94,4 +94,18 @@ public class RequestRoomDao implements GenericDao<RequestRoom> {
 
         dataSource.transactionUpdate(queriesData);
     }
+
+    public List<RequestRoom> findByUserId(int userId) {
+
+        return dataSource.receiveRecords("SELECT  temp.place_number as request_rooms_place_number, temp.class as request_rooms_class,\n" +
+                        " temp.user_id as user_id, temp.status as request_rooms_status,\n" +
+                        " temp.arrival_date as request_rooms_arrival_date, temp.departure_date as request_rooms_departure_date, temp.id as request_room_id, users.*\n" +
+                        " FROM\n" +
+                        "(SELECT *, id as request_id from request_rooms where user_id = ?) temp LEFT JOIN users ON temp.user_id = users.id",
+                resultSet -> roomResultSetConverter.convert(resultSet),
+                preparedStatement ->
+                {
+                    preparedStatement.setInt(1, userId);
+                });
+    }
 }
