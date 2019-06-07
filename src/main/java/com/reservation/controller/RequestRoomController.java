@@ -3,6 +3,7 @@ package com.reservation.controller;
 import com.reservation.exception.ServiceException;
 import com.reservation.model.dto.RequestRoomDto;
 import com.reservation.model.enums.ApartmentСlass;
+import com.reservation.model.enums.RequestRoomStatus;
 import com.reservation.service.RequestRoomService;
 import com.reservation.validator.AddRequestRoomValidator;
 import com.reservation.view.RedirectViewModel;
@@ -77,5 +78,17 @@ public class RequestRoomController {
         return new RedirectViewModel(new ViewModel("admin-room-selection/" + requestRoomId));
     }
 
+    public View regectRequestRoom(int requestRoomId) {
+        View view;
+        try {
+            requestRoomService.changeRequestRoomStatus(requestRoomId, RequestRoomStatus.REJECT.toString());
+            view = new ViewModel("admin-request-treatment");
+            /* return view;*/
+        } catch (ServiceException e) {
+            view = receiveViewModel("admin-personal-area", e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
+        }
+        return new RedirectViewModel(view);
+
+    }
 
 }

@@ -29,9 +29,13 @@ public class RequestRoomDtoConverter implements Converter<HttpServletRequest, Re
         return requestRoomDto;
     }
 
-    public int receiveRequestRoomId(HttpServletRequest request) {
+    public int receiveRequestRoomIdInTable(HttpServletRequest request) {
         String numberOfLine = request.getParameter("search-room");
         return Integer.valueOf(request.getParameter("request_id_" + numberOfLine).trim());
+    }
+
+    public int receiveRequestRoomId(HttpServletRequest request) {
+        return Integer.valueOf(request.getParameter("request_room_id"));
     }
 
     public int receiveRequestRoomIdFromURI(HttpServletRequest request) {

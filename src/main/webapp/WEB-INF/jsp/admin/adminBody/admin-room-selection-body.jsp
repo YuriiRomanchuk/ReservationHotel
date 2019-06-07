@@ -39,7 +39,7 @@
 
 <div class="w-100 d-none d-md-block"></div>
 
-<form method="post" action="admin-room-selection">
+<form method="post" action="admin-room-selection-reject">
     <div class="form-group field-middle_name row">
         <%--<div class="col-sm-6 col-md-6 col-xs-6 no-padding">
             <label for="film_filter"><fmt:message key="local.admin.session.film" bundle="${messages}"/></label>
@@ -118,10 +118,10 @@
         </div>
 
     </div>
-    <%--<div class="help-block row"></div>
+    <div class="help-block row"></div>
 
-    <button type="submit" class="btn btn-primary my-sm-2"><fmt:message key="local.admin.room.selection.button.find"
-                                                                       bundle="${messages}"/></button>--%>
+    <button type="submit" class="btn btn-primary my-sm-2"><fmt:message key="local.admin.room.selection.button.reject"
+                                                                       bundle="${messages}"/></button>
 <%--/form>--%>
 
 <table class="table table-sm table-striped">
@@ -172,7 +172,7 @@
                 <div class="form-group field-middle_name row mr-2">
 
                     <c:if test="${room.getId() !=0}">
-                        <button onclick="form.action='create-invoice';" type="submit" name="create-invoice"
+                        <button onclick="form.action='reject-request';" type="submit" name="reject-request"
                                 value="${loop.index}"
                                 class="btn btn-primary ml-2 mr-1">
                             <fmt:message key="local.admin.room.selection.button.create.invoice" bundle="${messages}"/>

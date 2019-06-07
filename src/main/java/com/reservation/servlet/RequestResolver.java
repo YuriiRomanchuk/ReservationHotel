@@ -41,9 +41,10 @@ public class RequestResolver {
         postControllers.put("/change_language", r -> webComponentInitializer.getChangeLanguageController().changeLanguage());
         postControllers.put("/admin-add-room", r -> webComponentInitializer.getRoomController().createRoom(webComponentInitializer.getRoomDtoConverter().convert(r)));
         postControllers.put("/user-add-request-room", r -> webComponentInitializer.getRequestRoomController().createRequestRoom(webComponentInitializer.getRequestRoomDtoConverter().convert(r)));
-        postControllers.put("/search-room", r -> webComponentInitializer.getRequestRoomController().showRoomSelectionAdmin(webComponentInitializer.getRequestRoomDtoConverter().receiveRequestRoomId(r)));
+        postControllers.put("/search-room", r -> webComponentInitializer.getRequestRoomController().showRoomSelectionAdmin(webComponentInitializer.getRequestRoomDtoConverter().receiveRequestRoomIdInTable(r)));
         postControllers.put("/create-invoice", r -> webComponentInitializer.getInvoiceController().createInvoice(webComponentInitializer.getInvoiceDtoConverter().convert(r)));
         postControllers.put("/pay-invoice", r -> webComponentInitializer.getInvoiceController().payInvoice(webComponentInitializer.getInvoiceDtoConverter().receiveInvoiceId(r)));
+        postControllers.put("/admin-room-selection-reject", r -> webComponentInitializer.getRequestRoomController().regectRequestRoom(webComponentInitializer.getRequestRoomDtoConverter().receiveRequestRoomId(r)));
     }
 
     public void resolveGetRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

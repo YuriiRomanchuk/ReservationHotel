@@ -48,4 +48,14 @@ public class RequestRoomService {
             throw new ServiceException("Request room receive failed", e);
         }
     }
+
+    public void changeRequestRoomStatus(int requestRoomId, String status) throws ServiceException {
+        try {
+            requestRoomDao.updateRequestStatus(requestRoomId, status);
+        } catch (Exception e) {
+            throw new ServiceException("Request room change status failed", e);
+        }
+
+    }
 }
+

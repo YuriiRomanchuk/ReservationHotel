@@ -83,4 +83,15 @@ public class RequestRoomDao implements GenericDao<RequestRoom> {
                 });
     }
 
+    public void updateRequestStatus(int requestRoomId, String status) {
+
+        QueryData[] queriesData = new QueryData[1];
+
+        queriesData[0] = (new QueryData("UPDATE request_rooms SET status = ? WHERE id = ?", ps -> {
+            ps.setString(1, status);
+            ps.setInt(2, requestRoomId);
+        }));
+
+        dataSource.transactionUpdate(queriesData);
+    }
 }
