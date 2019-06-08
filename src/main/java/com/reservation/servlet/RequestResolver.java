@@ -35,6 +35,8 @@ public class RequestResolver {
         getControllers.put("/admin-request-treatment", r -> webComponentInitializer.getRequestRoomController().showRequestTreatment());
         getControllers.put("/admin-room-selection/{id}", r -> webComponentInitializer.getRoomController().showRoomSelectionPage(webComponentInitializer.getRequestRoomDtoConverter().receiveRequestRoomIdFromURI(r)));
         getControllers.put("/user-invoices", r -> webComponentInitializer.getInvoiceController().showUserInvoicePage(webComponentInitializer.getUserDtoConverter().convertFromRequestForUserId(r)));
+        getControllers.put("/user-invoices-history", r -> webComponentInitializer.getInvoiceController().showUserInvoiceHistoryPage(webComponentInitializer.getUserDtoConverter().convertFromRequestForUserId(r)));
+
 
         postControllers.put("/login", r -> webComponentInitializer.getUserController().loginUser(webComponentInitializer.getUserLoginDtoConverter().convert(r)));
         postControllers.put("/registration-form", r -> webComponentInitializer.getUserController().createUser(webComponentInitializer.getUserDtoConverter().convert(r)));

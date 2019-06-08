@@ -89,4 +89,33 @@ public class InvoiceDao implements GenericDao<Invoice> {
 
         dataSource.transactionUpdate(queriesData);
     }
+
+    public List<Invoice> findByUserIdAndStatus(int userId, List<String> statuses) {
+
+        String query = "SELECT temp.id as invoice_id, temp.arrival_date as invoice_arrival_date, temp.departure_date as invoice_departure_date,\n" +
+                "       temp.status as invoice_status, temp.total_price as invoice_total_price, temp.room_id as room_id,\n" +
+                "       temp.request_room_id as request_room_id, temp.user_id as user_id, users.*, rooms.class as rooms_class,\n" +
+                "       rooms.place_number as rooms_place_number, rooms.price as rooms_price, rooms.room_number as rooms_room_number,\n" +
+                "       request_rooms.place_number as request_rooms_place_number, request_rooms.class as request_rooms_class,\n" +
+                "       request_rooms.user_id as request_rooms_user_id, request_rooms.status as request_rooms_status,\n" +
+                "       request_rooms.arrival_date as request_rooms_arrival_date, request_rooms.departure_date as request_rooms_departure_date\n" +
+                "FROM\n" +
+                "(SELECT * FROM invoices WHERE invoices.user_id = ? and 1 = 1) temp LEFT JOIN users on temp.user_id = users.id\n" +
+                "                                                                                     LEFT JOIN rooms on temp.room_id = rooms.id\n" +
+                "                                                                                     LEFT JOIN request_rooms on temp.request_room_id = request_rooms.id";
+
+
+        for (int i = 1; i <= statuses.size(); i++) {
+            query = query.replaceAll("1 = 1", "status = ? or 1 = 1");
+        }
+
+        return dataSource.receiveRecords(query,
+                resultSet -> invoiceResultSetConverter.convert(resultSet),
+                preparedStatement -> {
+                    preparedStatement.setInt(1, userId);
+                    for (int i = 1; i <= statuses.size(); i++) {
+                        preparedStatement.setString(1 + i, statuses.get(i-1));
+                    }
+                });
+    }
 }

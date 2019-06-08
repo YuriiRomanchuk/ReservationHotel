@@ -63,7 +63,10 @@ public class RoomDao implements GenericDao<Room> {
                         "      FROM\n" +
                         "        (SELECT MAX(invoices.id) as invoice_id, invoices.room_id FROM\n" +
                         "          (SELECT * FROM rooms  WHERE class = ? and place_number >= ?) temp LEFT JOIN invoices on temp.id = invoices.room_id\n" +
-                        "         WHERE invoices.status <> ? and invoices.arrival_date >= ? and invoices.departure_date <= ? GROUP BY invoices.room_id) temp2" +
+                        "         WHERE invoices.status <> ? and ((invoices.arrival_date >= ? and invoices.departure_date <= ?)" +
+                        "or (invoices.arrival_date <= ? and invoices.departure_date >= ?) " +
+                        "or (invoices.arrival_date <= ? and invoices.departure_date >= ?)" +
+                        "or (invoices.arrival_date <= ? and invoices.departure_date >= ?)) GROUP BY invoices.room_id) temp2" +
                         " RIGHT JOIN rooms ON rooms.id = temp2.room_id WHERE temp2.invoice_id ISNULL and rooms.class = ? and rooms.place_number >= ?\n" +
                         "\n",
                 resultSet -> roomResultSetConverter.convert(resultSet),
@@ -73,8 +76,15 @@ public class RoomDao implements GenericDao<Room> {
                     ps.setString(3, InvoiceStatus.REJECT.toString());
                     ps.setTimestamp(4, new Timestamp(currentArrivalDate.getTime()));
                     ps.setTimestamp(5, new Timestamp(currentDepartureDate.getTime()));
-                    ps.setString(6, apartmentClass);
-                    ps.setInt(7, placeNumber);
+                    ps.setTimestamp(6, new Timestamp(currentArrivalDate.getTime()));
+                    ps.setTimestamp(7, new Timestamp(currentArrivalDate.getTime()));
+                    ps.setTimestamp(8, new Timestamp(currentDepartureDate.getTime()));
+                    ps.setTimestamp(9, new Timestamp(currentDepartureDate.getTime()));
+                    ps.setTimestamp(10, new Timestamp(currentArrivalDate.getTime()));
+                    ps.setTimestamp(11, new Timestamp(currentDepartureDate.getTime()));
+                    ps.setString(12, apartmentClass);
+                    ps.setInt(13, placeNumber);
+
                 });
     }
 }

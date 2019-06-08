@@ -48,4 +48,13 @@ public class InvoiceService {
             throw new ServiceException("Update invoice failed", e);
         }
     }
+
+    public List<InvoiceDto> receiveInvoicesByStatus(UserDto userDto, List<String> statuses) throws ServiceException {
+        try {
+            List<Invoice> invoices = invoiceDao.findByUserIdAndStatus(userDto.getId(), statuses);
+            return invoices.stream().map(invoicesDtoFromEntityConverter::convert).collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new ServiceException("Receive invoice failed", e);
+        }
+    }
 }

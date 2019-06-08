@@ -14,6 +14,9 @@ import com.reservation.view.ViewModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InvoiceController {
 
     private static final Logger LOGGER = LogManager.getLogger(RoomController.class);
@@ -89,6 +92,21 @@ public class InvoiceController {
             /* return view;*/
         } catch (ServiceException e) {
             view = receiveViewModel("user-invoices", e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
+        }
+        return new RedirectViewModel(view);
+    }
+
+    public View showUserInvoiceHistoryPage(UserDto userDto) {
+        View view;
+        try {
+            view = new ViewModel("WEB-INF/jsp/user/user-invoice-history.jsp");
+            List<String> statuses = new ArrayList<>();
+            statuses.add(InvoiceStatus.PAID.toString());
+            statuses.add(InvoiceStatus.REJECT.toString());
+            view.addParameter("invoices", invoiceService.receiveInvoicesByStatus(userDto, statuses));
+            return view;
+        } catch (ServiceException e) {
+            view = receiveViewModel("user-personal-area", e.getCause() == null ? e.getMessage() : e.getCause().getMessage());
         }
         return new RedirectViewModel(view);
     }
