@@ -17,7 +17,7 @@ create table if not exists rooms
   id           SERIAL      NOT NULL,
   place_number int         NOT NULL,
   class        varchar(25) NOT NULL,
-  room_number  int         NOT NULL,
+  room_number  int         NOT NULL UNIQUE,
   price        int         NOT NULL,
   PRIMARY KEY (id)
 );
